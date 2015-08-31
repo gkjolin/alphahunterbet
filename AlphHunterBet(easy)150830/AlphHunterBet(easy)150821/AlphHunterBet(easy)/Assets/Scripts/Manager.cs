@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//maga_tega;
 public class Manager : MonoBehaviour
 {
 	// Playerプレハブ

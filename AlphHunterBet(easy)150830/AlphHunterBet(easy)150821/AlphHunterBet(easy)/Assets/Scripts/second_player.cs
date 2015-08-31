@@ -24,7 +24,10 @@ public class second_player : MonoBehaviour{
 	//{
 	//target = GameObject.Find("DOOR");
 	//target.SetActive(false);
-	
+	//test_player;
+	//test_player;
+	//player;
+
 	//}
 	void Update (){
 		MovePlayer ();

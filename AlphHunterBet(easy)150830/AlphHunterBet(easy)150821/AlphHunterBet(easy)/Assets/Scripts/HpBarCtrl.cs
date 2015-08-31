@@ -9,7 +9,7 @@ public class HpBarCtrl: MonoBehaviour {
 	public GameObject gameOverText;
 	public GameObject gameover;
 
-
+//high_level
 	void Start () {
 		// スライダーを取得する
 		_slider = GameObject.Find("Slider").GetComponent<Slider>();

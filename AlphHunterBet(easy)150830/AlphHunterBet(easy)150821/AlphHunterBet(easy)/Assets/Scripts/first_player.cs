@@ -123,7 +123,7 @@ public class first_player : MonoBehaviour{
 					Debug.Log (num);
 					
 				}
-				
+				//githubtest				
 				//num = char_cnt.decrease_cnt();
 				
 				//if(num == 0)
