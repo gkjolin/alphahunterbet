@@ -126,9 +126,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &26519512 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
+  m_PrefabInternal: {fileID: 26519511}
+--- !u!114 &26519513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26519512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7645fab73e5c0b48b3ee4dcbe92535d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnswerNumber: 0
+  Number: 0
 --- !u!1001 &95443055
 Prefab:
   m_ObjectHideFlags: 0
@@ -513,6 +531,14 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11414024, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
+      propertyPath: DOOR
+      value: 
+      objectReference: {fileID: 1304747468}
+    - target: {fileID: 11499666, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
+      propertyPath: answer
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499666, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
       propertyPath: DOOR
       value: 
       objectReference: {fileID: 1304747468}

@@ -9,7 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 405426}
   - 114: {fileID: 11478972}
-  - 114: {fileID: 11414024}
+  - 114: {fileID: 11499666}
+  - 114: {fileID: 11455154}
   m_Layer: 0
   m_Name: Manager1
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11414024
+--- !u!114 &11455154
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,11 +38,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 155676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a228347a5f513784a944cdb51145dede, type: 3}
+  m_Script: {fileID: 11500000, guid: b54029629ad897c469be803b6191ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DOOR: {fileID: 0}
-  answer: B
 --- !u!114 &11478972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,6 +54,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   p1: {fileID: 0}
+--- !u!114 &11499666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a228347a5f513784a944cdb51145dede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DOOR: {fileID: 0}
+  answer: A
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

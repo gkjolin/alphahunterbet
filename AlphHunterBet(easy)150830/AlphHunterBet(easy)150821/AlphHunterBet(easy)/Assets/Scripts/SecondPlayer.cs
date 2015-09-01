@@ -2,29 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class first_player : MonoBehaviour
+public class SecondPlayer : MonoBehaviour
 {
 	
-	Spaceship spaceship;
-	Enemy enemy;
-	Queue<string> queue = new Queue<string>(){};
-	DOOR doorref;
-	Title clearTitle;
-	string answer;
-	private GameObject title;
-	HpBarCtrl hp;
-	public int answer_num = 0;
-	char_count char_cnt;
-	public int num;
-
-
+	Spaceship Spaceship;
+	Enemy Enemy;
+	Queue<string> Queue = new Queue<string>(){};
+	DOOR DoorRefference;
+	Title ClearTitle;
+	string Answer;
+	private GameObject Title;
+	HpBarCtrl HitPoint;
+	public int AnswerNumber = 0;
+	char_count CharacterCount;
+	public int Number;
+	public static int StageNumber = 1;
+	StageControl StageLoad;
 	
-
+	
+	
 	void Start ()
 	{
 		Initialize ();
 	}
-
+	
 	void Update ()
 	{
 		MovePlayer ();
@@ -34,17 +35,18 @@ public class first_player : MonoBehaviour
 	{
 		float x = Input.GetAxisRaw ("Horizontal");		
 		float y = Input.GetAxisRaw ("Vertical");		
-		Vector2 direction = new Vector2 (x, y).normalized;		
-		spaceship.Move (direction);
+		Vector2 Direction = new Vector2 (x, y).normalized;		
+		Spaceship.Move (Direction);
 	}
 	
 	public void Initialize()
 	{
-		spaceship = GetComponent<Spaceship> ();
-		doorref = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
-		answer = GameObject.Find ("Manager1").GetComponent<SaveDoor> ().answer;
-		hp = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
-		char_cnt = GameObject.Find ("char_count").GetComponent<char_count> ();
+		Spaceship = GetComponent<Spaceship> ();
+		DoorRefference = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
+		Answer = GameObject.Find ("Manager1").GetComponent<SaveDoor> ().answer;
+		HitPoint = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
+		CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();
+		StageLoad = GameObject.Find ("Manager1").GetComponent<StageControl> ();
 	}
 	
 	public void OnTriggerEnter2D (Collider2D c)
@@ -54,12 +56,10 @@ public class first_player : MonoBehaviour
 		
 		if(layerName == "Enemy")
 		{
-			queue.Enqueue(c.gameObject.GetComponent<Enemy>().alphabet);
-			string arrayQueue=string.Concat(queue.ToArray());
+			Queue.Enqueue(c.gameObject.GetComponent<Enemy>().alphabet);
+			string arrayQueue=string.Concat(Queue.ToArray());
 			Debug.Log ("arrayQueue:"+arrayQueue);
-			spaceship.Explosion();
-
-
+			Spaceship.Explosion();
 			//RandomProcessing
 			//tekitou = Random.Range (1,3);
 			/*if(ans%3 != 0)
@@ -96,23 +96,20 @@ public class first_player : MonoBehaviour
 					Instantiate(A, spawnPos, Quaternion.identity);
 				}*/
 			//ans++;
-
+			
 			Destroy (c.gameObject);
-			Debug.Log ("answer"+answer);
-			
-			
-			if (arrayQueue != answer)
+			if (arrayQueue != Answer)
 			{
 				if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR")
-				hp.decrease_hp();
+					HitPoint.decrease_hp();
 			}else
 			{
-				num = char_cnt.decrease_cnt();
-				Debug.Log (num);
+				Number = CharacterCount.decrease_cnt();
+				Debug.Log (Number);
 			}
-			Debug.Log ("queue.Count < answer.Length"+answer.Length);
+			Debug.Log ("queue.Count < answer.Length"+Answer.Length);
 			
-			if(queue.Count < answer.Length)
+			if(Queue.Count < Answer.Length)
 			{
 				return;
 			}
@@ -120,21 +117,23 @@ public class first_player : MonoBehaviour
 		}
 	}
 	void QueueFull(Collider2D c,string arrayQueue){
-		queue.Dequeue ();
-		if (arrayQueue == answer)
+		Queue.Dequeue ();
+		if (arrayQueue == Answer)
 		{
-			answer_num++;
-			if(answer_num > 1)
+			
+			AnswerNumber++;
+			if(Number < 1)
 			{
 				Debug.Log ("Clear");
-				doorref.SetActive ();
+				DoorRefference.SetActive ();
 				
 			}
 		}
 		if (c.gameObject.GetComponent<Enemy> ().alphabet == "DOOR") {
-			char_cnt.full_cnt();
+			CharacterCount.full_cnt();
 			Destroy (gameObject);
-			Application.LoadLevel ("stage_clear");
+			//次のステージをロード
+			StageNumber = StageLoad.NextStage(StageNumber);
 		}
 	}
 }

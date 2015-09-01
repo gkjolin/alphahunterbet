@@ -10,7 +10,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/base_test.unity
   - enabled: 1
-    path: Assets/stage_clear.unity
+    path: Assets/stage_clear1.unity
   - enabled: 1
     path: Assets/stage_2.unity
   - enabled: 1

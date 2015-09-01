@@ -12,7 +12,7 @@ public class Door_ctrl : MonoBehaviour {
 	void Update () {
 
 	}
-
+	//github_test;
 	//private GameObject target;
 	//void Awake()
 	//{

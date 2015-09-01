@@ -134,14 +134,38 @@ Prefab:
       propertyPath: answer
       value: C
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11499666, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
+      propertyPath: answer
+      value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499666, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
+      propertyPath: DOOR
+      value: 
+      objectReference: {fileID: 940559299}
+    m_RemovedComponents:
+    - {fileID: 11455154, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &63965001 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 155676, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
+  m_PrefabInternal: {fileID: 63965000}
+--- !u!114 &63965002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63965001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54029629ad897c469be803b6191ddd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73091160 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   m_PrefabInternal: {fileID: 1948856345}
---- !u!114 &73091164
+--- !u!114 &73091161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -149,11 +173,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 73091160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536529ad73286004694a4554b466bf53, type: 3}
+  m_Script: {fileID: 11500000, guid: a7645fab73e5c0b48b3ee4dcbe92535d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer_num: 0
-  num: 0
+  AnswerNumber: 0
+  Number: 0
 --- !u!1001 &147723763
 Prefab:
   m_ObjectHideFlags: 0
