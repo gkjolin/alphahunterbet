@@ -16,9 +16,7 @@ public class FirstPlayer : MonoBehaviour
 	public int Number;
 	public static int StageNumber;
 	StageControl StageLoad;
-	
-	
-	
+
 	void Start ()
 	{
 		Initialize ();
@@ -28,14 +26,6 @@ public class FirstPlayer : MonoBehaviour
 	{
 		ComonPlayer.MovePlayer(Spaceship);
 	}
-	
-	/*void MovePlayer()
-	{
-		float x = Input.GetAxisRaw ("Horizontal");		
-		float y = Input.GetAxisRaw ("Vertical");		
-		Vector2 Direction = new Vector2 (x, y).normalized;		
-		Spaceship.Move (Direction);
-	}*/
 	
 	public void Initialize()
 	{
@@ -57,46 +47,10 @@ public class FirstPlayer : MonoBehaviour
 		{
 			Queue.Enqueue(c.gameObject.GetComponent<Enemy>().alphabet);
 			string arrayQueue=string.Concat(Queue.ToArray());
-			Debug.Log ("arrayQueue:"+arrayQueue);
 			Spaceship.Explosion();
-			//RandomProcessing
-			//tekitou = Random.Range (1,3);
-			/*if(ans%3 != 0)
-			{
-			if(tekitou == 1)
-			{
-			//add
-			float addXPos = Random.Range(-6.0f, 6.0f);
-			float addYPos = Random.Range(-6.0f, 6.0f);
-			Vector2 spawnPos = new Vector2 (addXPos, addYPos);
-			Instantiate(B, spawnPos, Quaternion.identity);
-			}
 
-			if(tekitou == 2)
-			{
-				
-				float addXPos = Random.Range(-6.0f, 6.0f);
-				float addYPos = Random.Range(-6.0f, 6.0f);
-				Vector2 spawnPos = new Vector2 (addXPos, addYPos);
-				Instantiate(C, spawnPos, Quaternion.identity);
-			}
-			if(tekitou == 3)
-			{
-				float addXPos = Random.Range(-6.0f, 6.0f);
-				float addYPos = Random.Range(-6.0f, 6.0f);
-				Vector2 spawnPos = new Vector2 (addXPos, addYPos);
-				Instantiate(D, spawnPos, Quaternion.identity);
-			}
-			}else
-			{
-					float addXPos = Random.Range(-6.0f, 6.0f);
-					float addYPos = Random.Range(-6.0f, 6.0f);
-					Vector2 spawnPos = new Vector2 (addXPos, addYPos);
-					Instantiate(A, spawnPos, Quaternion.identity);
-				}*/
-			//ans++;
-			
 			Destroy (c.gameObject);
+
 			if (arrayQueue != Answer)
 			{
 				if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR")
@@ -106,8 +60,7 @@ public class FirstPlayer : MonoBehaviour
 				Number = CharacterCount.decrease_cnt();
 				Debug.Log (Number);
 			}
-			Debug.Log ("queue.Count < answer.Length"+Answer.Length);
-			
+
 			if(Queue.Count < Answer.Length)
 			{
 				return;
@@ -118,8 +71,7 @@ public class FirstPlayer : MonoBehaviour
 	void QueueFull(Collider2D c,string arrayQueue){
 		Queue.Dequeue ();
 		if (arrayQueue == Answer)
-		{
-		
+		{		
 			AnswerNumber++;
 			if(Number < 2)
 			{
