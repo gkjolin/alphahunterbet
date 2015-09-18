@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour{
-	
+
+	//このコードはGame内で使わなくても問題ないことがわかりました
+
 	Spaceship spaceship;
 	Enemy enemy;
-	Queue<string> queue = new Queue<string>(){};
+	Queue<string> queue = new Queue<string>(){};//queueクラスのインスタンスを作成
 	DOOR doorref;
 	Title clearTitle;
 	string answer;
@@ -15,7 +17,7 @@ public class Player : MonoBehaviour{
 	public int answer_num = 0;
 	char_count char_cnt;
 	public int num;
-	public GameObject enemyPrefab;
+	//public GameObject enemyPrefab;
 	GameObject[] existEnemys;
 	public int maxEnemy = 5;
 	//private GameObject target;
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour{
 	void Update (){
 		MovePlayer ();
 	}
-
+	//playerの移動
 	void MovePlayer(){
 		float x = Input.GetAxisRaw ("Horizontal");		
 		float y = Input.GetAxisRaw ("Vertical");		
@@ -57,11 +59,13 @@ public class Player : MonoBehaviour{
 		string layerName = LayerMask.LayerToName(c.gameObject.layer);
 		
 		if(layerName == "Enemy"){
-			queue.Enqueue(c.gameObject.GetComponent<Enemy>().alphabet);
-			string arrayQueue=string.Concat(queue.ToArray());
+			Enemy enemyScripts=c.GetComponent<Enemy>();//enemyを取得
+			string getAlphabet=enemyScripts.alphabet;//敵の持つｱﾙﾌｧﾍﾞｯﾄを入手
+			queue.Enqueue(getAlphabet);//queueに追加
+			string arrayQueue=string.Concat(queue.ToArray());//現在の配列内の要素を文字列にする.
 			Debug.Log ("arrayQueue:"+arrayQueue);
-			spaceship.Explosion();
-			Generate ();
+			spaceship.Explosion();//接触確認用の爆発の発生
+			//Generate ();//いらないっす
 			Destroy (c.gameObject);
 			Debug.Log ("answer"+answer);
 
@@ -125,7 +129,9 @@ public class Player : MonoBehaviour{
 		}
 
 	}
+	/*不要部分
 	void Generate(){
+		Debug.Log ("実行");
 		for(int enemyCount = 0; enemyCount < existEnemys.Length; ++ enemyCount){
 			if(existEnemys[enemyCount] == null){
 				//敵を作成する
@@ -140,5 +146,6 @@ public class Player : MonoBehaviour{
 
 	//}
 		}
-	}	
+	}
+	*/
 }

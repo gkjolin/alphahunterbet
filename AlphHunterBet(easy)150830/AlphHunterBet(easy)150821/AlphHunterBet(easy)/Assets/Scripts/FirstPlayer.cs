@@ -33,7 +33,7 @@ public class FirstPlayer : MonoBehaviour
 		DoorRefference = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
 		Answer = GameObject.Find ("Manager1").GetComponent<SaveDoor> ().answer;
 		HitPoint = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
-		CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();
+		CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();//正解にぶつかって答えまであと何回かを表示
 		StageLoad = GameObject.Find ("Manager1").GetComponent<StageControl> ();
 
 	}
@@ -76,15 +76,14 @@ public class FirstPlayer : MonoBehaviour
 			if(Number < 2)
 			{
 				Debug.Log ("Collected the answer");
-				DoorRefference.SetActive ();
-				
+				DoorRefference.SetActive ();				
 			}
 		}
 		if (c.gameObject.GetComponent<Enemy> ().alphabet == "DOOR") {
 			CharacterCount.full_cnt();
 			Destroy (gameObject);
 			//次のステージをロード
-			StageNumber = StageLoad.NextStage(StageNumber);
+			StageNumber = StageLoad.NextStage(StageNumber);//返却値はintの関数nextStageを呼び出す
 		}
 	}
 }
