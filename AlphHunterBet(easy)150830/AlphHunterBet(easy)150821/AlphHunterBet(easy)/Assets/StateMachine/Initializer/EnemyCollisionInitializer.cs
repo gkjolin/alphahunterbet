@@ -18,7 +18,7 @@ public class EnemyCollisionInitializer : MonoBehaviour {
 		IAlphabetQueueHandler alphabetQueueHandler = new AlphabetQueueHandler ();
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
-		playerAnimator.GetBehaviour<EnemyCollision> ().Initialize (firstPlayer, spaceship, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
+		playerAnimator.GetBehaviour<InEnemyCollision> ().Initialize (firstPlayer, spaceship, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
 
 	}
 	

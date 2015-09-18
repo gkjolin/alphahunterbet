@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyCollision : StateMachineBehaviour {
+public class InEnemyCollision : StateMachineBehaviour {
 
 	FirstPlayer firstPlayer;
 	Spaceship spaceship;
