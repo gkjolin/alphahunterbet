@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class FirstPlayer : MonoBehaviour
 {
-
-
 	Animator animator;
 
 	public string Answer;
@@ -14,7 +12,6 @@ public class FirstPlayer : MonoBehaviour
 	public static int StageNumber;
 
 	public Collider2D collisionData;
-	public Queue<string> Queue = new Queue<string>(){};
 
 	void Start ()
 	{
@@ -28,7 +25,6 @@ public class FirstPlayer : MonoBehaviour
 	
 	public void Initialize()
 	{
-		IAlphabetQueue alphabetQueue = new CharQueue();
 		animator = GameObject.Find ("Player").GetComponent<Animator> ();
 	}
 	

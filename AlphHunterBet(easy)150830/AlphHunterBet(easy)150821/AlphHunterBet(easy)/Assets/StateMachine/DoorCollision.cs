@@ -7,19 +7,15 @@ public class DoorCollision : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		char_count CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();
 		CharacterCount.full_cnt();
-		Destroy (GameObject.Find ("Player"));
-		
+		//Destroy (GameObject.Find ("Player"));
+		int stageNumber = animator.GetInteger("StageNumber");
 		StageControl StageLoad=GameObject.Find ("Manager1").GetComponent<StageControl> ();
-		int stageNumber = animator.GetInteger ("StageNumber");
-		
 		animator.SetInteger("StageNumber",StageLoad.NextStage(stageNumber));
-
 	}
 	
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Debug.Log ("In DoorCollision");
-	}
+//	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+//	}
 	
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

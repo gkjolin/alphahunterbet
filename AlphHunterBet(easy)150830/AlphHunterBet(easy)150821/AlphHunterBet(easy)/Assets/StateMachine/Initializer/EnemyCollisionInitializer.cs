@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyCollisionInitializer : MonoBehaviour {
@@ -14,10 +15,10 @@ public class EnemyCollisionInitializer : MonoBehaviour {
 		HpBarCtrl hpBarCtrl = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
 		char_count characterCount = GameObject.Find ("char_count").GetComponent<char_count> ();;
 		DOOR DoorRefference = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
-
+		IAlphabetQueueHandler alphabetQueueHandler = new AlphabetQueueHandler ();
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
-		playerAnimator.GetBehaviour<EnemyCollision> ().Initialize (firstPlayer, spaceship, hpBarCtrl,characterCount,DoorRefference);
+		playerAnimator.GetBehaviour<EnemyCollision> ().Initialize (firstPlayer, spaceship, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
 
 	}
 	

@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c694dcb7031a3654bb105e40ae607d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Answer: A
+  Answer: 
   AnswerNumber: 0
   Number: 0
   collisionData: {fileID: 0}
