@@ -28,12 +28,7 @@ public class FirstPlayer : MonoBehaviour
 	
 	public void Initialize()
 	{
-//		Spaceship = GetComponent<Spaceship> ();
-//		DoorRefference = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
-//		Answer = GameObject.Find ("Manager1").GetComponent<SaveDoor> ().answer;
-//		HitPoint = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
-//		CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();
-//		StageLoad = GameObject.Find ("Manager1").GetComponent<StageControl> ();
+		IAlphabetQueue alphabetQueue = new CharQueue();
 		animator = GameObject.Find ("Player").GetComponent<Animator> ();
 	}
 	
