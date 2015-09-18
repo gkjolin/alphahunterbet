@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Move : MonoBehaviour,IMove {
+public class PlayerMove : MonoBehaviour,IMove {
 
 	float speed = 5;
 

@@ -9,7 +9,7 @@ public class InPlayerNormalInitalizer : MonoBehaviour {
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
 		IUserInput userInput = player.GetComponent<KeyInput> ();
-		IMove move = player.GetComponent<Move> ();
+		IMove move = player.GetComponent<PlayerMove> ();
 
 		playerAnimator.GetBehaviour<InPlayerNormal> ().Initialize (userInput,move);
 	}
