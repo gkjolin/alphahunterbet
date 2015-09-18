@@ -9,8 +9,8 @@ public class EnemyCollisionInitializer : MonoBehaviour {
 	void Start () {
 
 		GameObject player = GameObject.Find ("Player");
-		//FirstPlayer firstPlayer = player.GetComponent<FirstPlayer> ();
-		FirstPlayer firstPlayer = player.GetComponent<FirstPlayerChild> () as FirstPlayer;
+		FirstPlayer firstPlayer = player.GetComponent<FirstPlayer> ();
+		//FirstPlayer firstPlayer = player.GetComponent<FirstPlayerChild> () as FirstPlayer;
 		Spaceship spaceship = player.GetComponent<Spaceship> ();
 		HpBarCtrl hpBarCtrl = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
 		char_count characterCount = GameObject.Find ("char_count").GetComponent<char_count> ();;
