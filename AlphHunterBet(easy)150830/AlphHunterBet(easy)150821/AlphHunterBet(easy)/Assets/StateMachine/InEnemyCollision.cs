@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public class InEnemyCollision : StateMachineBehaviour {
 
-	FirstPlayer firstPlayer;
+	PlayerModel firstPlayer;
 	Spaceship spaceship;
 	HpBarCtrl HitPoint;
 	char_count CharacterCount;
 	DOOR DoorRefference;
 	IAlphabetQueueHandler alphabetQueueHandler;
 
-	public void Initialize(FirstPlayer _player, Spaceship _spaceship,HpBarCtrl _hpBarCtrl,char_count _characterCount, DOOR _DOOR, IAlphabetQueueHandler _alphabetQueueHandler){
+	public void Initialize(PlayerModel _player, Spaceship _spaceship,HpBarCtrl _hpBarCtrl,char_count _characterCount, DOOR _DOOR, IAlphabetQueueHandler _alphabetQueueHandler){
 		if (_player == null || _spaceship == null || _hpBarCtrl == null || _characterCount == null) {
 			throw new ArgumentNullException ("null at EnemyCollision");
 		}
@@ -34,7 +34,7 @@ public class InEnemyCollision : StateMachineBehaviour {
 		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
 		string arrayQueue=alphabetQueueHandler.GetQueueString();
 
-		spaceship.Explosion();
+		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
 		
 		if (arrayQueue != Answer){

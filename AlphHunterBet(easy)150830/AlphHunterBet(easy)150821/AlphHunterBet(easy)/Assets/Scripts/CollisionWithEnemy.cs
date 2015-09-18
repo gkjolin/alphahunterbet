@@ -4,7 +4,7 @@ using System.Collections;
 public class CollisionWithEnemy : MonoBehaviour {
 
 
-	public Collider2D collisionData;
+	Collider2D collisionData;
 	Animator animator;
 
 	// Use this for initialization
@@ -17,7 +17,7 @@ public class CollisionWithEnemy : MonoBehaviour {
 	{
 		
 		collisionData = c;
-		GetComponent<FirstPlayer> ().collisionData = c;
+		GetComponent<PlayerModel> ().collisionData = c;
 		
 		if (c.gameObject.GetComponent<Enemy> ().alphabet == "DOOR") {
 			animator.SetTrigger ("CollisionWithDoor");

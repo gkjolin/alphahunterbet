@@ -6,6 +6,8 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 
 	Queue<string> alphabetQueue = new Queue<string>{};
 
+	int sizeOfQueue = 1;
+
 	public Queue<string> AlphabetQueue {
 		get {
 			return alphabetQueue;
@@ -14,7 +16,9 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 
 	public void UpdateQueue(string newAlphabet){
 		alphabetQueue.Enqueue(newAlphabet);
-		alphabetQueue.Dequeue ();
+		if (alphabetQueue.Count > sizeOfQueue) {
+			alphabetQueue.Dequeue ();
+		}
 	}
 
 	public string GetQueueString(){

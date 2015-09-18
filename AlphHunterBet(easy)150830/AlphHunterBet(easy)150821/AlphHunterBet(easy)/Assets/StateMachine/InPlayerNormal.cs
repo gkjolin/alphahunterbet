@@ -4,16 +4,18 @@ using System.Collections;
 public class InPlayerNormal : StateMachineBehaviour {
 
 
-	Spaceship spaceship;
+	IUserInput userInput;
+	IMove move;
 
-	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		spaceship = GameObject.Find ("Player").GetComponent<Spaceship> ();
+	public void Initialize (IUserInput _userInput,IMove _move){
+		userInput = _userInput;
+		move = _move;
 	}
+
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		ComonPlayer.MovePlayer(spaceship);
+		move.Move2D(userInput.GetInputVector());
 	}
 
 
