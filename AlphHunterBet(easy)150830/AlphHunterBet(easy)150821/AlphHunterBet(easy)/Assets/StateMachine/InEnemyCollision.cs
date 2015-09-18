@@ -12,12 +12,11 @@ public class InEnemyCollision : StateMachineBehaviour {
 	DOOR DoorRefference;
 	IAlphabetQueueHandler alphabetQueueHandler;
 
-	public void Initialize(PlayerModel _player, Spaceship _spaceship,HpBarCtrl _hpBarCtrl,char_count _characterCount, DOOR _DOOR, IAlphabetQueueHandler _alphabetQueueHandler){
-		if (_player == null || _spaceship == null || _hpBarCtrl == null || _characterCount == null) {
+	public void Initialize(PlayerModel _player, HpBarCtrl _hpBarCtrl,char_count _characterCount, DOOR _DOOR, IAlphabetQueueHandler _alphabetQueueHandler){
+		if (_player == null ||  _hpBarCtrl == null || _characterCount == null) {
 			throw new ArgumentNullException ("null at EnemyCollision");
 		}
 		firstPlayer = _player;
-		spaceship = _spaceship;
 		HitPoint = _hpBarCtrl;
 		CharacterCount = _characterCount;
 		DoorRefference = _DOOR;

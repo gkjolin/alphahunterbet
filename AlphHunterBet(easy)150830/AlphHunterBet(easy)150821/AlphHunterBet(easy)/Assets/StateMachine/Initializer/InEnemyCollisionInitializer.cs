@@ -11,14 +11,13 @@ public class InEnemyCollisionInitializer : MonoBehaviour {
 		GameObject player = GameObject.Find ("Player");
 		PlayerModel firstPlayer = player.GetComponent<PlayerModel> ();
 		//FirstPlayer firstPlayer = player.GetComponent<FirstPlayerChild> () as FirstPlayer;
-		Spaceship spaceship = player.GetComponent<Spaceship> ();
 		HpBarCtrl hpBarCtrl = GameObject.Find ("HpBarCtrl").GetComponent<HpBarCtrl> ();
 		char_count characterCount = GameObject.Find ("char_count").GetComponent<char_count> ();;
 		DOOR DoorRefference = GameObject.Find ("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
 		IAlphabetQueueHandler alphabetQueueHandler = new AlphabetQueueHandler ();
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
-		playerAnimator.GetBehaviour<InEnemyCollision> ().Initialize (firstPlayer, spaceship, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
+		playerAnimator.GetBehaviour<InEnemyCollision> ().Initialize (firstPlayer, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
 
 	}
 	
