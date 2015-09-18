@@ -2,6 +2,8 @@
 //maga_tega;
 public class Manager : MonoBehaviour
 {
+	//不要なScriptsです.
+
 	// Playerプレハブ
 	public GameObject player;
 	// タイトル
