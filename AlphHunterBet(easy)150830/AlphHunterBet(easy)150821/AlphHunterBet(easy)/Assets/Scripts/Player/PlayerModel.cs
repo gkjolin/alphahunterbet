@@ -9,6 +9,7 @@ public class PlayerModel : MonoBehaviour
 	public int AnswerNumber = 0;
 	public int Number;
 	public static int StageNumber;
+	public int speed = 5;
 
 	Collider2D _collisionData;
 

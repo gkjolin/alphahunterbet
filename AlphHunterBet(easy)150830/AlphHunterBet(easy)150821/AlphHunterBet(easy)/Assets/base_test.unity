@@ -1031,7 +1031,8 @@ Prefab:
       propertyPath: DOOR
       value: 
       objectReference: {fileID: 43736997}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11478972, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &888873408
@@ -1121,17 +1122,7 @@ MonoBehaviour:
   Answer: A
   AnswerNumber: 0
   Number: 0
---- !u!114 &1064629034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1064629032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e0bcb0696fc1f4db5c946c2f235769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!114 &1064629035
 MonoBehaviour:
   m_ObjectHideFlags: 0

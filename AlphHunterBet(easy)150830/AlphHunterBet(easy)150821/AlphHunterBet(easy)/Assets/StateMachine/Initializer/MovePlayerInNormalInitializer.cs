@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InPlayerNormalInitalizer : MonoBehaviour {
+public class MovePlayerInNormalInitializer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -9,9 +9,9 @@ public class InPlayerNormalInitalizer : MonoBehaviour {
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
 		IUserInput userInput = player.GetComponent<KeyInput> ();
-		IMove move = player.GetComponent<PlayerMove> ();
+		Rigidbody2D rigidbody2d = player.GetComponent<Rigidbody2D> ();
 
-		playerAnimator.GetBehaviour<InPlayerNormal> ().Initialize (userInput,move);
+		playerAnimator.GetBehaviour<MovePlayerInNormal> ().Initialize (userInput,rigidbody2d);
 	}
 	
 }

@@ -1,23 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InPlayerNormal : StateMachineBehaviour {
-
-
+public class MovePlayerInNormal : StateMachineBehaviour,IMove {
+	
+	Rigidbody2D rigidbody2d;
+	float speed = 5;
 	IUserInput userInput;
-	IMove move;
 
-	public void Initialize (IUserInput _userInput,IMove _move){
-		userInput = _userInput;
-		move = _move;
+	public float Speed{
+		get{
+			return speed;
+		}
+		set{
+			this.speed = value;
+		}
 	}
 
+	public void Initialize (IUserInput _userInput,Rigidbody2D _rigidbody2d){
+		userInput = _userInput;
+		Speed = speed;
+		rigidbody2d = _rigidbody2d;
+	}
+	
+	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//
+	//}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		move.Move2D(userInput.GetInputVector());
+		Move2D(userInput.GetInputVector());
 	}
-
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -33,4 +46,9 @@ public class InPlayerNormal : StateMachineBehaviour {
 	//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
 	//}
+
+	public void Move2D (Vector2 direction){
+		rigidbody2d.velocity = direction * Speed;
+	}
+
 }
