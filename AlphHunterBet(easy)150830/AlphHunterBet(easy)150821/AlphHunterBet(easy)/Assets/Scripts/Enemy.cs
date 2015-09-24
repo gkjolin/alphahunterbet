@@ -6,21 +6,21 @@ public class Enemy : MonoBehaviour
 	public string alphabet;
 
 	IEnumerator Start (){
-		spaceship = GetComponent<Spaceship> ();
-		spaceship.Move (transform.up * -1);
+		//spaceship = GetComponent<Spaceship> ();
+		//spaceship.Move (transform.up * -1);
 		if (spaceship.canShot == false) {
 			yield break;
 		}
-		while (true) {
+		/*while (true) {
 			for (int i = 0; i < transform.childCount; i++) {
 				Transform shotPosition = transform.GetChild(i);
 				spaceship.Shot (shotPosition);
 			}
 			yield return new WaitForSeconds (spaceship.shotDelay);
-		}
+		}*/
 	}
 	
-	void OnTriggerEnter2D (Collider2D c)
+	/*void OnTriggerEnter2D (Collider2D c)
 	{
 		// レイヤー名を取得
 		string layerName = LayerMask.LayerToName(c.gameObject.layer);
@@ -36,5 +36,5 @@ public class Enemy : MonoBehaviour
 		
 		// エネミーの削除
 		Destroy(gameObject);
-	}
+	}*/
 }
