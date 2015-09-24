@@ -8,7 +8,7 @@ public class MovePlayerInNormalInitializer : MonoBehaviour {
 		GameObject player = GameObject.Find ("Player");
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
-		IUserInput userInput = player.GetComponent<KeyInput> ();
+		IUserInput userInput = player.GetComponent<TapInput> ();
 		Rigidbody2D rigidbody2d = player.GetComponent<Rigidbody2D> ();
 
 		playerAnimator.GetBehaviour<MovePlayerInNormal> ().Initialize (userInput,rigidbody2d);
