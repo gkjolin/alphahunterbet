@@ -25,7 +25,7 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 		if(alphabetQueue.Peek () != Answer){
 			//キューが空になるまっで吐き出す
 			while(alphabetQueue.Count != 0){
-				alphabetQueue.Dequeue();
+				alphabetQueue.Dequeue();//alphabetQueue.Clear()?
 			}
 		}
 		

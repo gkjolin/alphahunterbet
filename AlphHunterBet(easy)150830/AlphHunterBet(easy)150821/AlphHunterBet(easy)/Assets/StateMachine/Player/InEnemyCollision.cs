@@ -44,7 +44,7 @@ public class InEnemyCollision : StateMachineBehaviour {
 		}
 		
 		if (arrayQueue == Answer){		
-			firstPlayer.AnswerNumber++;
+			//firstPlayer.AnswerNumber++;
 
 			if(Number < 2){
 				DoorRefference.SetActive ();
