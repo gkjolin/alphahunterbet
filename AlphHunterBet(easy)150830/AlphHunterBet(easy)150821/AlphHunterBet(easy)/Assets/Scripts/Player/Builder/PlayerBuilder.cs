@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyInitializer : MonoBehaviour {
+public class PlayerBuilder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +13,12 @@ public class EnemyInitializer : MonoBehaviour {
         DOOR DoorRefference = GameObject.Find("Manager1").GetComponent<SaveDoor>().DOOR.GetComponent<DOOR>();
         IAlphabetQueueHandler alphabetQueueHandler = new AlphabetQueueHandler();
         Animator playerAnimator = player.GetComponent<Animator>();
+        IUserInput userInput = player.GetComponent<KeyInput>();
+        Rigidbody2D rigidbody2d = player.GetComponent<Rigidbody2D>();
 
+        playerAnimator.GetBehaviour<MovePlayerInNormal>().Initialize(userInput, rigidbody2d);
         playerAnimator.GetBehaviour<InEnemyCollision>().Initialize(firstPlayer, hpBarCtrl, characterCount, DoorRefference, alphabetQueueHandler);
+
         characterCount.Initialize(alphabetQueueHandler);
     }
 
