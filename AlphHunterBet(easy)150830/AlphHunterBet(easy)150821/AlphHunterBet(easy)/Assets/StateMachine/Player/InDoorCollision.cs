@@ -6,7 +6,6 @@ public class InDoorCollision : StateMachineBehaviour {
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		char_count CharacterCount = GameObject.Find ("char_count").GetComponent<char_count> ();
-		CharacterCount.full_cnt();
 		//Destroy (GameObject.Find ("Player"));
 		int stageNumber = animator.GetInteger("StageNumber");
 		StageControl StageLoad=GameObject.Find ("Manager1").GetComponent<StageControl> ();

@@ -6,7 +6,7 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 	
 	Queue<string> alphabetQueue = new Queue<string>{};
 	
-	int sizeOfQueue = 1;
+	int sizeOfQueue = 3;
 	string Answer = GameObject.Find("Manager1").GetComponent<SaveDoor>().answer;
 	
 	public Queue<string> AlphabetQueue {
@@ -21,12 +21,11 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 		//Debug.Log(alphabetQueue.Count);
 		
 		alphabetQueue.Enqueue(newAlphabet);
-		
-		if(alphabetQueue.Peek () != Answer){
+
+
+        if (newAlphabet != Answer){
 			//キューが空になるまっで吐き出す
-			while(alphabetQueue.Count != 0){
-				alphabetQueue.Dequeue();//alphabetQueue.Clear()?
-			}
+                alphabetQueue.Clear();
 		}
 		
 		if(alphabetQueue.Count > sizeOfQueue){
@@ -37,8 +36,14 @@ public class AlphabetQueueHandler : IAlphabetQueueHandler {
 	public string GetQueueString(){
 		return string.Concat (alphabetQueue.ToArray ());
 	}
-	
-	public bool ValidateQueue(string answerString,int repeats){
+
+    public int GetQueueLength()
+    {
+        return alphabetQueue.Count;
+    }
+
+    public bool ValidateQueue(string answerString,int repeats){
 		return false;
 	}
+
 }

@@ -29,7 +29,6 @@ public class InEnemyCollision : StateMachineBehaviour {
 		Collider2D c = firstPlayer.collisionData;
 		string Answer = firstPlayer.Answer;
 		int Number = firstPlayer.Number;
-
 		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
 		string arrayQueue=alphabetQueueHandler.GetQueueString();
 
@@ -39,17 +38,12 @@ public class InEnemyCollision : StateMachineBehaviour {
 		if (arrayQueue != Answer){
 			if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR")
 				HitPoint.decrease_hp();
-		}else{
-			Number = CharacterCount.decrease_cnt();
 		}
 		
-		if (arrayQueue == Answer){		
-			//firstPlayer.AnswerNumber++;
-
-			if(Number < 2){
-				DoorRefference.SetActive ();
-			}
+		if(CharacterCount.LeftToCollect == 0){
+			DoorRefference.SetActive ();
 		}
+
 		animator.SetTrigger("EnemyCollisionFinished");
 
 	}

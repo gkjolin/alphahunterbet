@@ -9,5 +9,6 @@ public interface IAlphabetQueueHandler  {
 	void UpdateQueue(string newAlphabet);
 	string GetQueueString();
 	bool ValidateQueue(string answerString,int repeats);
+    int GetQueueLength();
 
 }
