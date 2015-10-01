@@ -201,9 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitShotTime: 10
-  alphabet01: {fileID: 114832, guid: 4c3772ac836ace24eae9bb8301556629, type: 2}
-  alphabet02: {fileID: 134962, guid: 9ae40cba456826044895b8293f7ad6ce, type: 2}
-  alphabet03: {fileID: 122582, guid: 34e0eae86824de2418de3f7656f9bb11, type: 2}
+  alphabet01: {fileID: 149630, guid: 7544a2adff915b440922daf629da2ffd, type: 2}
+  alphabet02: {fileID: 128426, guid: d5796238c43793149a80249faf3e7470, type: 2}
+  alphabet03: {fileID: 157294, guid: 41a36ef12d4b96247999ffaa72013c41, type: 2}
   cntAlphabet: 3
 --- !u!212 &1890925189
 SpriteRenderer:
