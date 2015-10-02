@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour
 
 	void LoadComponents(){
 		//読み込み
-		bs = GameObject.Find ("Boss").GetComponent<BossMove> ();
+		bs = gameObject.GetComponent<BossMove> ();
 	}
 
 	IEnumerator Start()
