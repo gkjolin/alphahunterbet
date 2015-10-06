@@ -34,19 +34,19 @@ public class InEnemyCollision : StateMachineBehaviour {
 		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
 
-        if (arrayQueue != Answer)
-        {
-            if (c.gameObject.GetComponent<Enemy>().alphabet != "DOOR")
-            {
-                AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
-                answerSE.Play();
-                HitPoint.decrease_hp();
-            }
-            if (CharacterCount.LeftToCollect == 0)
-            {
-                DoorRefference.SetActive();
-            }
-        }
+        if (arrayQueue != Answer) {
+			if (c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR") {
+				AudioSource answerSE = GameObject.Find ("IncorrectSE").GetComponent<AudioSource> ();
+				answerSE.Play ();
+				HitPoint.decrease_hp ();
+			}
+			if (CharacterCount.LeftToCollect == 0) {
+				DoorRefference.SetActive ();
+			}
+		} else {
+			AudioSource answerSE = GameObject.Find ("CorrectSE").GetComponent<AudioSource> ();
+			answerSE.Play ();
+		}
 		animator.SetTrigger("EnemyCollisionFinished");
 
 	}
