@@ -4,29 +4,23 @@ using UnityEngine.UI; // ←※これを忘れずに入れる
 
 public class char_count : MonoBehaviour {
 
-	char_count cnt;
-	static int num = 3;
-	//private GameObject target;
+	public int numberToCollect = 3;
+    public int LeftToCollect
+    {
+        get
+        {
+            return numberToCollect - _AlphabetQueueHandler.GetQueueLength();
+        }
+    } 
 
-	//private GameObject target;
+    IAlphabetQueueHandler _AlphabetQueueHandler;
 
-	// Use this for initialization
-	void Start () {
-		num = 3;
-		//target = GameObject.Find("DOOR");
-	}
-	//void Awake()
-	//{
-		//target = GameObject.Find("DOOR");
-		//target.SetActive(false);
-		
-	//}
-	// Update is called once per frame
-	void Update () {
-		if(num < 0)
-		{
-//			target.SetActive(true);
+    public void Initialize(IAlphabetQueueHandler _AlphabetQueueHandler)
+    {
+        this._AlphabetQueueHandler = _AlphabetQueueHandler;
+    }
 
+<<<<<<< HEAD
 			num = 3;
 		}
 		GetComponent<Text> ().text = (num).ToString ();
@@ -40,5 +34,9 @@ public class char_count : MonoBehaviour {
 	public void full_cnt()
 	{
 		char_count.num = 3;
+=======
+	void Update () {
+		GetComponent<Text> ().text = (LeftToCollect).ToString ();
+>>>>>>> cc739c6313f223cd381f6c880a2f8996d6679d21
 	}
 }

@@ -29,7 +29,6 @@ public class InEnemyCollision : StateMachineBehaviour {
 		Collider2D c = firstPlayer.collisionData;
 		string Answer = firstPlayer.Answer;
 		int Number = firstPlayer.Number;
-
 		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
 		string arrayQueue = alphabetQueueHandler.GetQueueString();
 
@@ -41,18 +40,18 @@ public class InEnemyCollision : StateMachineBehaviour {
 				AudioSource answerSE = GameObject.Find ("IncorrectSE").GetComponent<AudioSource> ();
 				answerSE.Play();
 				HitPoint.decrease_hp();
+<<<<<<< HEAD:AlphHunterBet(easy)150830/AlphHunterBet(easy)150821/AlphHunterBet(easy)/Assets/StateMachine/Player/InEnemyCollision.cs
 			}
 		}else{
 			Number = CharacterCount.decrease_cnt();
+=======
+>>>>>>> cc739c6313f223cd381f6c880a2f8996d6679d21:AlphHunterBet(easy)150830/AlphHunterBet(easy)150821/AlphHunterBet(easy)/Assets/Scripts/Player/StateMachine/InEnemyCollision.cs
 		}
 		
-		if (arrayQueue == Answer){		
-			firstPlayer.AnswerNumber++;
-
-			if(Number < 2){
-				DoorRefference.SetActive ();
-			}
+		if(CharacterCount.LeftToCollect == 0){
+			DoorRefference.SetActive ();
 		}
+
 		animator.SetTrigger("EnemyCollisionFinished");
 
 	}
