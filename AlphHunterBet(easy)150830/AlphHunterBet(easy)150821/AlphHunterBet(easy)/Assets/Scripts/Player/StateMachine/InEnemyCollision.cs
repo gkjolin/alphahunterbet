@@ -31,27 +31,22 @@ public class InEnemyCollision : StateMachineBehaviour {
 		int Number = firstPlayer.Number;
 		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
 		string arrayQueue = alphabetQueueHandler.GetQueueString();
-
 		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
-		
-		if (arrayQueue != Answer){
-			if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR"){
-				AudioSource answerSE = GameObject.Find ("IncorrectSE").GetComponent<AudioSource> ();
-				answerSE.Play();
-				HitPoint.decrease_hp();
-<<<<<<< HEAD:AlphHunterBet(easy)150830/AlphHunterBet(easy)150821/AlphHunterBet(easy)/Assets/StateMachine/Player/InEnemyCollision.cs
-			}
-		}else{
-			Number = CharacterCount.decrease_cnt();
-=======
->>>>>>> cc739c6313f223cd381f6c880a2f8996d6679d21:AlphHunterBet(easy)150830/AlphHunterBet(easy)150821/AlphHunterBet(easy)/Assets/Scripts/Player/StateMachine/InEnemyCollision.cs
-		}
-		
-		if(CharacterCount.LeftToCollect == 0){
-			DoorRefference.SetActive ();
-		}
 
+        if (arrayQueue != Answer)
+        {
+            if (c.gameObject.GetComponent<Enemy>().alphabet != "DOOR")
+            {
+                AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
+                answerSE.Play();
+                HitPoint.decrease_hp();
+            }
+            if (CharacterCount.LeftToCollect == 0)
+            {
+                DoorRefference.SetActive();
+            }
+        }
 		animator.SetTrigger("EnemyCollisionFinished");
 
 	}

@@ -20,23 +20,7 @@ public class char_count : MonoBehaviour {
         this._AlphabetQueueHandler = _AlphabetQueueHandler;
     }
 
-<<<<<<< HEAD
-			num = 3;
-		}
-		GetComponent<Text> ().text = (num).ToString ();
-	}
-			public int decrease_cnt()
-			{
-		AudioSource answerSE = GameObject.Find ("CorrectSE").GetComponent<AudioSource> ();
-		answerSE.Play ();
-			return char_count.num -= 1;
-		}
-	public void full_cnt()
-	{
-		char_count.num = 3;
-=======
 	void Update () {
 		GetComponent<Text> ().text = (LeftToCollect).ToString ();
->>>>>>> cc739c6313f223cd381f6c880a2f8996d6679d21
 	}
 }
