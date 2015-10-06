@@ -33,6 +33,8 @@ public class char_count : MonoBehaviour {
 	}
 			public int decrease_cnt()
 			{
+		AudioSource answerSE = GameObject.Find ("CorrectSE").GetComponent<AudioSource> ();
+		answerSE.Play ();
 			return char_count.num -= 1;
 		}
 	public void full_cnt()

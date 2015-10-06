@@ -37,8 +37,11 @@ public class InEnemyCollision : StateMachineBehaviour {
 		Destroy (c.gameObject);
 		
 		if (arrayQueue != Answer){
-			if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR")
+			if(c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR"){
+				AudioSource answerSE = GameObject.Find ("IncorrectSE").GetComponent<AudioSource> ();
+				answerSE.Play();
 				HitPoint.decrease_hp();
+			}
 		}else{
 			Number = CharacterCount.decrease_cnt();
 		}
