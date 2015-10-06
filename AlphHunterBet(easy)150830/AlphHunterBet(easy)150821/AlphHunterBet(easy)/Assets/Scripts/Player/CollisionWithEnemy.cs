@@ -11,6 +11,10 @@ public class CollisionWithEnemy : MonoBehaviour {
 	void Start () {
 		animator = GameObject.Find ("Player").GetComponent<Animator> ();
 
+
+
+
+
 	}
 	
 	public void OnTriggerEnter2D (Collider2D c)
