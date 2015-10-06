@@ -10,9 +10,8 @@ public class CollisionWithEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GameObject.Find ("Player").GetComponent<Animator> ();
+		}
 
-	}
-	
 	public void OnTriggerEnter2D (Collider2D c)
 	{
 		
@@ -29,7 +28,6 @@ public class CollisionWithEnemy : MonoBehaviour {
 		if(layerName == "Enemy")
 		{
 			animator.SetTrigger ("CollisionWithEnemy");
-			
 		}
 	}
 

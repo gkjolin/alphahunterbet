@@ -31,7 +31,7 @@ public class InEnemyCollision : StateMachineBehaviour {
 		int Number = firstPlayer.Number;
 
 		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
-		string arrayQueue=alphabetQueueHandler.GetQueueString();
+		string arrayQueue = alphabetQueueHandler.GetQueueString();
 
 		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
