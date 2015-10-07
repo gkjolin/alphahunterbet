@@ -62,6 +62,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66660dd2ae1f0604f9cc2e33208c044b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11452188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d039dc759d5730b498e1c4093c200896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11454666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721c34219cd7f0d49a5673bc4b0486db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11488110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,6 +93,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 139511992440328458d73716aabc9666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11498850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8846844c771e5ed439247a84da5e6b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1101 &110119710
@@ -158,7 +191,7 @@ AnimatorState:
   - {fileID: 110172214}
   - {fileID: 110156020}
   m_StateMachineBehaviours:
-  - {fileID: 0}
+  - {fileID: 11498850}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -182,7 +215,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 0}
+  - {fileID: 11454666}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -207,7 +240,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 110119710}
   m_StateMachineBehaviours:
-  - {fileID: 0}
+  - {fileID: 11452188}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
