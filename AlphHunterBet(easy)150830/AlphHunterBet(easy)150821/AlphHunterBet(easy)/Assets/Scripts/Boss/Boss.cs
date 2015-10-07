@@ -12,11 +12,11 @@ public class Boss : MonoBehaviour
 	//アルファベットの種類の数を保存すする変数
 	public int cntAlphabet = 3;
 	//BossMove呼び出し変数
-	BossMove bs;
+	BossMove bm;
 
 	void LoadComponents(){
 		//読み込み
-		bs = gameObject.GetComponent<BossMove> ();
+		bm = gameObject.GetComponent<BossMove> ();
 	}
 
 	IEnumerator Start()
@@ -24,7 +24,7 @@ public class Boss : MonoBehaviour
 		LoadComponents ();
 		//randomの返却値を保存する変数.
 		int rnd;
-		Debug.Log ("into while");
+		Debug.Log (bm);
 
 		while (true) {
 			//ゲームが始まってすぐに発射されるのを防ぐために待ち時間設定.
@@ -35,7 +35,7 @@ public class Boss : MonoBehaviour
 
 			//発射前に一時停止
 			//移動しないようにBossMove内のcanMoveをfalseに.
-			bs.ChangeFlagMove(false);
+			bm.ChangeFlagMove(false);
 			yield return new WaitForSeconds (1.0f);
 
 			//発射するオブジェクトを決定.
@@ -52,7 +52,7 @@ public class Boss : MonoBehaviour
 
 			//発射ののちに再び動き出す.
 			yield return new WaitForSeconds (1.0f);
-			bs.ChangeFlagMove(true);
+			bm.ChangeFlagMove(true);
 
 			//発射したあとすぐに発射しないように待ち時間を設定.
 			//待ち時間は"waitShotTime"で設定可能.
