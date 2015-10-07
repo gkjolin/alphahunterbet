@@ -60,8 +60,15 @@ public class Boss : MonoBehaviour
 			//UnsystematicMove
 			Debug.Log ("MoveRele : UnsystematicMove");
 
-			//移動を実行する関数
-			StartCoroutine(bm.UnsystematicMove(rndM));
+
+			while(rndM > 0){
+				//移動を実行する関数
+				bm.UnsystematicMoveHide();
+				yield return new WaitForSeconds(bm.cantSeeTime);
+				bm.UnsystematicMoveShow();
+				yield return new WaitForSeconds(bm.canSeeTime);
+			}
+			yield return new WaitForSeconds (1.0f);
 			//アルファベットを投下
 			DropAlphabet(rnd);
 		}
