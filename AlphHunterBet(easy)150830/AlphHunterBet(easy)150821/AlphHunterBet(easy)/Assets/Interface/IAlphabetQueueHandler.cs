@@ -6,9 +6,10 @@ public interface IAlphabetQueueHandler  {
 
 	Queue<string> AlphabetQueue {get;}
 
-	void UpdateQueue(string newAlphabet);
-	string GetQueueString();
-	bool ValidateQueue(string answerString,int repeats);
+	void UpdateQueue(string newAlphabet,string answerString);
+    void ClearQueue();
+    string GetQueueString();
+	bool ValidateQueue(string answerString);    
     int GetQueueLength();
 
 }

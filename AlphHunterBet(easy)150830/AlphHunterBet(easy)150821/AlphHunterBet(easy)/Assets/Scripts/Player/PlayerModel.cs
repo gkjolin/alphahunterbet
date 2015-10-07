@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class PlayerModel : MonoBehaviour
 {
 
-	public string Answer;
-	public int AnswerNumber = 0;
 	public int Number;
 	public static int StageNumber;
 	public int speed = 5;

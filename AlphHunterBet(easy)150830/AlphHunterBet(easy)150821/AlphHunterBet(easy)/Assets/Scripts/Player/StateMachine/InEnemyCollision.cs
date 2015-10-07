@@ -9,17 +9,17 @@ public class InEnemyCollision : StateMachineBehaviour {
 	Spaceship spaceship;
 	HpBarCtrl HitPoint;
 	char_count CharacterCount;
-	DOOR DoorRefference;
+	SaveDoor saveDoor;
 	IAlphabetQueueHandler alphabetQueueHandler;
 
-	public void Initialize(PlayerModel _player, HpBarCtrl _hpBarCtrl,char_count _characterCount, DOOR _DOOR, IAlphabetQueueHandler _alphabetQueueHandler){
+	public void Initialize(PlayerModel _player, HpBarCtrl _hpBarCtrl,char_count _characterCount, SaveDoor _SaveDoor, IAlphabetQueueHandler _alphabetQueueHandler){
 		if (_player == null ||  _hpBarCtrl == null || _characterCount == null) {
 			throw new ArgumentNullException ("null at EnemyCollision");
 		}
 		firstPlayer = _player;
 		HitPoint = _hpBarCtrl;
 		CharacterCount = _characterCount;
-		DoorRefference = _DOOR;
+		saveDoor = _SaveDoor;
 		alphabetQueueHandler = _alphabetQueueHandler;
 	}
 
@@ -27,12 +27,14 @@ public class InEnemyCollision : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
 		Collider2D c = firstPlayer.collisionData;
-		string Answer = firstPlayer.Answer;
-		int Number = firstPlayer.Number;
-		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet);
-		string arrayQueue = alphabetQueueHandler.GetQueueString();
+		string answer = saveDoor.answer;
+		int number = firstPlayer.Number;
+
+		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet,answer);
 		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
+
+        string arrayQueue = alphabetQueueHandler.GetQueueString();
 
         if (arrayQueue != Answer) {
 			if (c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR") {
@@ -41,7 +43,7 @@ public class InEnemyCollision : StateMachineBehaviour {
 				HitPoint.decrease_hp ();
 			}
 			if (CharacterCount.LeftToCollect == 0) {
-				DoorRefference.SetActive ();
+				DoorReference.SetActive ();
 			}
 		} else {
 			AudioSource answerSE = GameObject.Find ("CorrectSE").GetComponent<AudioSource> ();
