@@ -31,8 +31,10 @@ public class AlphabetRepeatQueue : IAlphabetQueueHandler {
     }
 
     public bool ValidateQueue(string answerString){
+        Debug.Log(GetQueueString());
+        Debug.Log(answerString.Substring(0, GetQueueLength()));
 
-        if (newAlphabet != Answer)
+        if (GetQueueString() != answerString.Substring(0,GetQueueLength()))
         {
             return false;
         }

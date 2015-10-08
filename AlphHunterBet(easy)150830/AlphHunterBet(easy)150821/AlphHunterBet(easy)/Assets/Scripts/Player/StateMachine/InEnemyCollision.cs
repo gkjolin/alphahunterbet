@@ -5,52 +5,51 @@ using System.Collections.Generic;
 
 public class InEnemyCollision : StateMachineBehaviour {
 
-	PlayerModel firstPlayer;
+	PlayerModel playerModel;
 	Spaceship spaceship;
 	HpBarCtrl HitPoint;
 	char_count CharacterCount;
 	SaveDoor saveDoor;
-	IAlphabetQueueHandler alphabetQueueHandler;
+	IAlphabetQueueHandler alphabetRepeatHandler;
 
-	public void Initialize(PlayerModel _player, HpBarCtrl _hpBarCtrl,char_count _characterCount, SaveDoor _SaveDoor, IAlphabetQueueHandler _alphabetQueueHandler){
-		if (_player == null ||  _hpBarCtrl == null || _characterCount == null) {
+	public void Initialize(PlayerModel _player, HpBarCtrl _hpBarCtrl,SaveDoor _SaveDoor, IAlphabetQueueHandler _alphabetRepeatHandler)
+    {
+		if (_player == null ||  _hpBarCtrl == null ) {
 			throw new ArgumentNullException ("null at EnemyCollision");
 		}
-		firstPlayer = _player;
+		playerModel = _player;
 		HitPoint = _hpBarCtrl;
-		CharacterCount = _characterCount;
 		saveDoor = _SaveDoor;
-		alphabetQueueHandler = _alphabetQueueHandler;
+        alphabetRepeatHandler = _alphabetRepeatHandler;
 	}
 
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-		Collider2D c = firstPlayer.collisionData;
+		Collider2D c = playerModel.collisionData;
 		string answer = saveDoor.answer;
-		int number = firstPlayer.Number;
 
-		alphabetQueueHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet,answer);
+        alphabetRepeatHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet,answer);
+
 		c.gameObject.GetComponent<Spaceship>().Explosion();
 		Destroy (c.gameObject);
 
-        string arrayQueue = alphabetQueueHandler.GetQueueString();
-
-        if (arrayQueue != Answer) {
-			if (c.gameObject.GetComponent<Enemy> ().alphabet != "DOOR") {
-				AudioSource answerSE = GameObject.Find ("IncorrectSE").GetComponent<AudioSource> ();
-				answerSE.Play ();
-				HitPoint.decrease_hp ();
-			}
-			if (CharacterCount.LeftToCollect == 0) {
-				DoorReference.SetActive ();
-			}
-		} else {
-			AudioSource answerSE = GameObject.Find ("CorrectSE").GetComponent<AudioSource> ();
-			answerSE.Play ();
-		}
-		animator.SetTrigger("EnemyCollisionFinished");
-
+        if (alphabetRepeatHandler.ValidateQueue(answer)) {
+            AudioSource answerSE = GameObject.Find("CorrectSE").GetComponent<AudioSource>();
+            answerSE.Play();
+            if (alphabetRepeatHandler.GetQueueLength() == answer.Length)
+            {
+                saveDoor.DOOR.SetActive(true);
+            }
+        }
+        else
+        {
+            AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
+            answerSE.Play();
+            HitPoint.decrease_hp();
+            alphabetRepeatHandler.ClearQueue();
+        }
+        animator.SetTrigger("EnemyCollisionFinished");
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
