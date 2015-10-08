@@ -9,6 +9,8 @@ public class BossMove : MonoBehaviour {
 	public float moveWidth = 5;
 	//gameObjectのrendererを読み出すための変数
 	Renderer r;
+	//gameObjectのAnimatorを読み出すための変数
+	Animator a;
 	//移動をするかしないかの状態を保存.
 	bool canMove = true;
 	//移動方法を設定をする変数
@@ -23,7 +25,8 @@ public class BossMove : MonoBehaviour {
 	public float canSeeTime = 2.5f;
 
 	void Start(){
-		r = gameObject.GetComponent<Renderer>();
+		r = gameObject.GetComponent<Renderer> ();
+		a = gameObject.GetComponent<Animator> ();
 	}
 
 	void Update(){
@@ -53,7 +56,6 @@ public class BossMove : MonoBehaviour {
 */
 		//gameObjectの座標をゲーム画面外へ移動(予期しない動作を防ぐ);
 		gameObject.transform.position = new Vector3 (30, 30, 0);
-
 	}
 
 	//不規則な移動をする移動形態(見えるようになる).
@@ -77,5 +79,9 @@ public class BossMove : MonoBehaviour {
 	//移動するかしないかの状態を変更するための関数
 	public void ChangeFlagMove(bool flag){
 		canMove = flag;
+	}
+
+	public void MySetTrigger (string name){
+		a.SetTrigger (name);
 	}
 }

@@ -183,6 +183,7 @@ GameObject:
   - 212: {fileID: 1890925189}
   - 114: {fileID: 1890925188}
   - 114: {fileID: 1890925191}
+  - 95: {fileID: 1890925192}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -260,3 +261,20 @@ MonoBehaviour:
   canSeeSpeed: .00999999978
   cantSeeTime: 1.5
   canSeeTime: 2.5
+--- !u!95 &1890925192
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890925187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6443591a87fe12441a9352d88bfe221f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

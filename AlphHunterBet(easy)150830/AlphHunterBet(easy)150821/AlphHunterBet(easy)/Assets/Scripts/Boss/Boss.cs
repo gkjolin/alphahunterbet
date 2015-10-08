@@ -11,12 +11,14 @@ public class Boss : MonoBehaviour
 	public GameObject alphabet03;
 	//アルファベットの種類の数を保存すする変数
 	public int cntAlphabet = 3;
-	//BossMove呼び出し変数
+	//呼び出し変数
 	BossMove bm;
+	Animator a;
 
 	void LoadComponents(){
 		//読み込み
 		bm = gameObject.GetComponent<BossMove> ();
+		a = gameObject.GetComponent<Animator> ();
 	}
 
 	IEnumerator Start()
@@ -63,8 +65,9 @@ public class Boss : MonoBehaviour
 
 			while(rndM > 0){
 				//移動を実行する関数
-				bm.UnsystematicMoveHide();
 				yield return new WaitForSeconds(bm.cantSeeTime);
+				bm.UnsystematicMoveHide();
+	
 				bm.UnsystematicMoveShow();
 				yield return new WaitForSeconds(bm.canSeeTime);
 			}
