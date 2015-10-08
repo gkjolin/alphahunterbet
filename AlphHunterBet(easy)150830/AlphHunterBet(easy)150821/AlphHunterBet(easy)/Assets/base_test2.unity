@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748bc74c1fabf4c5cbcca4c2475615f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alphabet: 
+  alphabet: DOOR
 --- !u!114 &43737000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ef0dfe7789ebe4c93ee6242e3bce25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alphabet: DOOR
+  alphabet: 
 --- !u!1001 &184349779
 Prefab:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,7 @@ Prefab:
       objectReference: {fileID: 43736997}
     - target: {fileID: 11499666, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
       propertyPath: answer
-      value: DOOR
+      value: A
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11478972, guid: 4c45637fa0f861447b807ac5878eb5e1, type: 2}
