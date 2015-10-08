@@ -11,7 +11,7 @@ public class MovePlayerInNormalInitializer : MonoBehaviour {
 		IUserInput userInput = player.GetComponent<KeyInput> ();
 		Rigidbody2D rigidbody2d = player.GetComponent<Rigidbody2D> ();
 
-		playerAnimator.GetBehaviour<MovePlayerInNormal> ().Initialize (userInput,rigidbody2d);
+		//playerAnimator.GetBehaviour<MovePlayerInNormal> ().Initialize (userInput,rigidbody2d);
 	}
 	
 }

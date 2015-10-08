@@ -17,7 +17,7 @@ public class InEnemyCollisionInitializer : MonoBehaviour {
 		IAlphabetQueueHandler alphabetQueueHandler = new AlphabetQueueHandler ();
 		Animator playerAnimator = player.GetComponent<Animator> ();
 
-		playerAnimator.GetBehaviour<InEnemyCollision> ().Initialize (firstPlayer, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
+	//	playerAnimator.GetBehaviour<InEnemyCollision> ().Initialize (firstPlayer, hpBarCtrl,characterCount,DoorRefference, alphabetQueueHandler);
 
 	}
 	

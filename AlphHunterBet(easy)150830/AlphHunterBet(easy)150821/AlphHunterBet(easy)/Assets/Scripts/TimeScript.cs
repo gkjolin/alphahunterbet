@@ -16,7 +16,7 @@ public class TimeScript : MonoBehaviour {
 
 	void Start () {
 		//********** 追記 **********// 
-		gameOverText.SetActive(false);
+//		gameOverText.SetActive(false);
 		//********** 追記 **********// 
 		GetComponent<Text>().text = ((int)time).ToString();
 	}
