@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class Gravity : MonoBehaviour {
-
+	
+	Spaceship _spaceship;
 	public float speed;
+	public float _destroy;
 
 	// Use this for initialization
 	void Start () {
@@ -12,8 +14,9 @@ public class Gravity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(new Vector2(0f, -1f * speed));
-
-		                          
+		Physics2D.gravity = Vector2.up * speed;
+		if (transform.position.y == _destroy) {
+			Destroy(gameObject);
+		}
 	}
 }
