@@ -11,12 +11,14 @@ public class Gravity : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+	void OnBecameInvisible() {
+		Destroy (this.gameObject);
+	}
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 		Physics2D.gravity = Vector2.up * speed;
 		if (transform.position.y == _destroy) {
-			Destroy(gameObject);
+			Destroy(this.gameObject);
 		}
-	}
+	}*/
 }
