@@ -14,6 +14,8 @@ public class Boss : MonoBehaviour
 	//呼び出し変数
 	BossMove bm;
 	Animator a;
+	//移動回数を保存する変数
+	public int rndM;
 
 	void LoadComponents(){
 		//読み込み
@@ -24,25 +26,20 @@ public class Boss : MonoBehaviour
 	IEnumerator Start()
 	{
 		LoadComponents ();
-		//randomの返却値を保存する変数.
-		int rnd;
 		//ゲームが始まってすぐに発射されるのを防ぐために待ち時間設定.
 		yield return new WaitForSeconds (0.5f);
 
-		if (bm.SysMove() == true) {
+		if (bm.SysMove () == true) {
 			//SystematicMove
 			Debug.Log ("MoveRele : SystematicMove");
 			while (true) {
-				//発射するものを無作為に決定するため,ランダム関数を使用.
-				rnd = Random.Range (1, cntAlphabet + 1);
-
 				//発射前に一時停止
 				//移動しないようにBossMove内のcanMoveをfalseに.
 				bm.ChangeFlagMove (false);
 				yield return new WaitForSeconds (1.0f);
 
 				//アルファベットの投下
-				DropAlphabet(rnd);
+				DropAlphabet ();
 
 				//発射ののちに再び動き出す.
 				yield return new WaitForSeconds (1.0f);
@@ -53,42 +50,44 @@ public class Boss : MonoBehaviour
 				yield return new WaitForSeconds (waitShotTime - 2.5f);
 			}
 		} else {
-			//何回移動するかを決定する変数
-			//移動回数は最大５回
-			int rndM = Random.Range (1,6);
-			Debug.Log ("rndM : " + rndM);
-			//発射するものを無作為に決定するため,ランダム関数を使用.
-			rnd = Random.Range (1, cntAlphabet + 1);
-			//UnsystematicMove
-			Debug.Log ("MoveRele : UnsystematicMove");
-
-
-			while(rndM > 0){
-				//移動を実行する関数
-				yield return new WaitForSeconds(bm.cantSeeTime);
-				bm.UnsystematicMoveHide();
-	
-				bm.UnsystematicMoveShow();
-				yield return new WaitForSeconds(bm.canSeeTime);
-			}
-			yield return new WaitForSeconds (1.0f);
-			//アルファベットを投下
-			DropAlphabet(rnd);
+		//UnsistematicMove
+		Debug.Log ("MoveRele : UnsystematicMove");
+		a.SetTrigger ("inUnsystematic");
 		}
 	}
 
 	//アルファベットを投下するための関数
-	void DropAlphabet(int random){
+	//移動回数は最大５回
+	void DropAlphabet(){
+		//randomの返却値を保存する変数.
+		//発射するものを無作為に決定するため,ランダム関数を使用.
+		int rnd = Random.Range (1, cntAlphabet + 1);
+
 		//発射するオブジェクトを決定.
 		//インスタンス化
-		if (random == 1) {
+		if (rnd == 1) {
 			Instantiate (alphabet01, transform.position, transform.rotation);
 		}
-		if (random == 2) {
+		if (rnd == 2) {
 			Instantiate (alphabet02, transform.position, transform.rotation);
 		}
-		if (random == 3) {
+		if (rnd == 3) {
 			Instantiate (alphabet03, transform.position, transform.rotation);
 		}
+	}
+
+	//何回移動するかを決定する関数
+	public void Random1to5 (){
+		rndM = Random.Range (1, 6);
+		Debug.Log ("rndM : " + rndM);
+	}
+
+	//rndMを減少させるための関数
+	public void CountDownM(){
+		rndM--;
+	}
+
+	void OnGUI(){
+		GUI.Label(new Rect(10,10,100,50),"rndM : " + rndM);
 	}
 }

@@ -22,7 +22,7 @@ public class BossMove : MonoBehaviour {
 	//見えなくなってからの時間を設定する変数
 	public float cantSeeTime = 1.5f;
 	//見えるようになってからの時間を設定する変数
-	public float canSeeTime = 2.5f;
+	public float canSeeTime = 1.5f;
 
 	void Start(){
 		r = gameObject.GetComponent<Renderer> ();
@@ -84,4 +84,9 @@ public class BossMove : MonoBehaviour {
 	public void MySetTrigger (string name){
 		a.SetTrigger (name);
 	}
+
+	public void MyResetTrigger (string name){
+		a.ResetTrigger (name);
+	}
+
 }
