@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovePlayerInNormal : StateMachineBehaviour,IMove {
+public class MovePlayerInNormal : StateMachineBehaviour {
 	
 	Rigidbody2D rigidbody2d;
 	float speed = 5;
 	IUserInput userInput;
+    IMove move;
+
 
 	public float Speed{
 		get{
@@ -16,10 +18,11 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 		}
 	}
 
-	public void Initialize (IUserInput _userInput,Rigidbody2D _rigidbody2d){
+	public void Initialize (IUserInput _userInput,Rigidbody2D _rigidbody2d, IMove _move){
 		userInput = _userInput;
 		Speed = speed;
 		rigidbody2d = _rigidbody2d;
+        move = _move;
 	}
 	
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -29,7 +32,7 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Move2D(userInput.GetInputVector());
+		move.Move2D(userInput.GetInputVector());
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -46,9 +49,5 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 	//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
 	//}
-
-	public void Move2D (Vector2 direction){
-		rigidbody2d.velocity = direction * Speed;
-	}
 
 }

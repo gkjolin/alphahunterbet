@@ -14,11 +14,12 @@ public class MoveInFlame :MonoBehaviour ,IMove{
 		}
 	}
 	public void Move2D (Vector2 direction){
-		rigidbody2d.velocity = direction * Speed;
+        rigidbody2d.velocity = direction * Speed;
 	}
-	void start(){
+	void Start(){
+        rigidbody2d = GetComponent<Rigidbody2D>();
 	}
-	void update(){
+	void Update(){
 		Clamp ();
 	}
 	void Clamp()
