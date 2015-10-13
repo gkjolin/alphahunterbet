@@ -9,7 +9,7 @@ public class MissuleSwitch: MonoBehaviour {
 	public GameObject AlphbetSwitchUI; 
 	
 	private UsingScript_to_AlphbetSwitch usingScript;
-	private static bool isLunch = true;//misslelunchは一度だけ実行
+	private static bool isLunch = true;//misslelunchは一度だけ実行(テスト用のため常にture)
 
 	private string stateName;
 	private GameObject player = null;
@@ -63,7 +63,7 @@ public class MissuleSwitch: MonoBehaviour {
 			return;
 		}
 		GameObject.Instantiate (lunchObject, player.transform.position, new Quaternion (0, 0, 0, 0));
-		isLunch = false;
+		//isLunch = false;
 	}
 
 
