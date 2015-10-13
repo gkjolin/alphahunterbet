@@ -7,9 +7,10 @@ public class Gravity : MonoBehaviour {
 	public float speed;
 	public float _destroy;
 
+
 	// Use this for initialization
 	void Start () {
-	
+		//gameCamera = Camera.mainCamera.gameObject;
 	}
 	void OnBecameInvisible() {
 		Destroy (this.gameObject);
@@ -17,8 +18,8 @@ public class Gravity : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Physics2D.gravity = Vector2.up * speed;
-		if (transform.position.y == _destroy) {
+		/*if (transform.position.y == _destroy) {
 			Destroy(this.gameObject);
-		}
+		}*/
 	}
 }
