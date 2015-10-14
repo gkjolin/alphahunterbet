@@ -5,7 +5,6 @@ public class EnemyMove : MonoBehaviour {
 	
 	Spaceship _spaceship;
 	public float speed;
-	//public float _destroy;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +26,6 @@ public class EnemyMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Physics2D.gravity = Vector2.up * speed;
-		/*if (transform.position.y == _destroy) {
-			Destroy(this.gameObject);
-		}*/
 	}
+	
 }
