@@ -4,8 +4,15 @@ using System.Collections;
 public class SceneManagerScript : MonoBehaviour {
 
 	private static SceneManagerScript mInstance;
-	
-	private SceneManagerScript () { // Private Constructor
+
+    public GameObject _prefab;
+    public string _startScene;
+
+    static GameObject prefab;
+    static string startScene;
+    static Animator animator;
+
+    private SceneManagerScript () { // Private Constructor
 		
 		Debug.Log("Create SceneManager GameObject instance.");
 	}
@@ -15,22 +22,25 @@ public class SceneManagerScript : MonoBehaviour {
 		get {
 			if( mInstance == null ) {
 				
-				GameObject go = new GameObject("SceneManager");
-				mInstance = go.AddComponent<SceneManagerScript>();
-				DontDestroyOnLoad(mInstance);
-				Application.LoadLevel ("Start");
+				GameObject go = Instantiate(prefab,new Vector3(0,0,0),Quaternion.identity) as GameObject;
+                animator = go.GetComponent<Animator>();
+                mInstance = go.GetComponent<SceneManagerScript>();
+				DontDestroyOnLoad(go);
+				Application.LoadLevel (startScene);
 			}
 			return mInstance;
 		}
 	}
 		
 	void Start () {
-		Debug.Log("Start");
-		SceneManagerScript hoge = SceneManagerScript.Instance;
+        prefab = _prefab;
+        startScene = _startScene;
+        SceneManagerScript hoge = Instance;
 	}
 	
-	void Update () {
-
-		Debug.Log("Update");
-	}
+    public static void SetTrigger(string trigger)
+    {
+        animator.SetTrigger(trigger);
+    }
+    
 }
