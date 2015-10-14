@@ -3,13 +3,13 @@ using System.Collections;
 
 public class SceneManagerScript : MonoBehaviour {
 
-	private static SceneManagerScript mInstance;
 
     public GameObject _prefab;
     public string _startScene;
 
     static GameObject prefab;
     static string startScene;
+    static SceneManagerScript mInstance;
     static Animator animator;
 
     private SceneManagerScript () { // Private Constructor
@@ -23,8 +23,8 @@ public class SceneManagerScript : MonoBehaviour {
 			if( mInstance == null ) {
 				
 				GameObject go = Instantiate(prefab,new Vector3(0,0,0),Quaternion.identity) as GameObject;
-                animator = go.GetComponent<Animator>();
                 mInstance = go.GetComponent<SceneManagerScript>();
+                animator = go.GetComponent<Animator>();
 				DontDestroyOnLoad(go);
 				Application.LoadLevel (startScene);
 			}
