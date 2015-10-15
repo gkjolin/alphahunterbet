@@ -17,12 +17,6 @@ public class BossMove : MonoBehaviour {
 	bool sysMove = false;
 	//1flameごとに１ずつ増加する変数
 	float cnt = 1;
-	//見えるようになる見えなくなる速度を設定する変数
-	public float canSeeSpeed = 0.01f;
-	//見えなくなってからの時間を設定する変数
-	public float cantSeeTime = 1.5f;
-	//見えるようになってからの時間を設定する変数
-	public float canSeeTime = 1.5f;
 
 	void Start(){
 		r = gameObject.GetComponent<Renderer> ();
@@ -48,18 +42,13 @@ public class BossMove : MonoBehaviour {
 
 	//不規則な移動をする移動形態(見えなくなる).　イメージは瞬間移動
 	public void UnsystematicMoveHide(){
-/*	問題点(1)	
-		//徐々に見えなくなっていく演出
-		while(r.material.color.a != 0){
-			r.material.color -= new Color(0, 0, 0, canSeeSpeed);
-		}
-*/
-		//gameObjectの座標をゲーム画面外へ移動(予期しない動作を防ぐ);
+		Debug.Log ("In UnsystematicMoveHide()");
 		gameObject.transform.position = new Vector3 (30, 30, 0);
 	}
 
 	//不規則な移動をする移動形態(見えるようになる).
 	public void UnsystematicMoveShow(){
+		Debug.Log ("In UnsystematicMoveShow()");
 		//移動する先の座標を保存するための変数
 		float rnd_x = Random.Range (-5.0f, 5.0f);
 		float rnd_y = Random.Range (0.0f, 3.65f);
@@ -67,12 +56,6 @@ public class BossMove : MonoBehaviour {
 
 		//瞬間移動先に前もって移動
 		gameObject.transform.position = new Vector3 (rnd_x, rnd_y, 0);
-/*	問題点(2)
-		//徐々に見えてくる演出
-		while (r.material.color.a != 1) {
-			r.material.color += new Color(0, 0, 0, canSeeSpeed);
-		}
-*/
 	}
 
 	//外部からの呼び出し関数
@@ -81,12 +64,11 @@ public class BossMove : MonoBehaviour {
 		canMove = flag;
 	}
 
+	//Animatorで使うトリガーをセットリセットする関数
 	public void MySetTrigger (string name){
 		a.SetTrigger (name);
 	}
-
 	public void MyResetTrigger (string name){
 		a.ResetTrigger (name);
 	}
-
 }

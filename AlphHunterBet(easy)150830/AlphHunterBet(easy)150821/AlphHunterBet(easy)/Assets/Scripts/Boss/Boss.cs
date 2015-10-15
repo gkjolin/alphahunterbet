@@ -50,15 +50,15 @@ public class Boss : MonoBehaviour
 				yield return new WaitForSeconds (waitShotTime - 2.5f);
 			}
 		} else {
-		//UnsistematicMove
-		Debug.Log ("MoveRele : UnsystematicMove");
-		a.SetTrigger ("inUnsystematic");
+			//UnsistematicMove
+			Debug.Log ("MoveRele : UnsystematicMove");
+			a.SetTrigger ("inUnsystematic");
 		}
 	}
 
 	//アルファベットを投下するための関数
 	//移動回数は最大５回
-	void DropAlphabet(){
+	public void DropAlphabet(){
 		//randomの返却値を保存する変数.
 		//発射するものを無作為に決定するため,ランダム関数を使用.
 		int rnd = Random.Range (1, cntAlphabet + 1);
@@ -85,6 +85,11 @@ public class Boss : MonoBehaviour
 	//rndMを減少させるための関数
 	public void CountDownM(){
 		rndM--;
+		Debug.Log ("rndM(CountDownM) : " + rndM);
+		if (rndM == 0) 
+		{
+			a.SetTrigger ("toShot");
+		}
 	}
 
 	void OnGUI(){

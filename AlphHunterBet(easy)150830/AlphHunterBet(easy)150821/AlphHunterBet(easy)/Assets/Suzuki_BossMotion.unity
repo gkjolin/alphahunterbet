@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300070, guid: 030ede5f070c0674e989fe38c6faf41c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: .902030945}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!4 &1890925190
 Transform:
   m_ObjectHideFlags: 0
@@ -259,9 +259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossSpeed: .00999999978
   moveWidth: 5
-  canSeeSpeed: .00999999978
-  cantSeeTime: 1.5
-  canSeeTime: 2.5
 --- !u!95 &1890925192
 Animator:
   serializedVersion: 3
