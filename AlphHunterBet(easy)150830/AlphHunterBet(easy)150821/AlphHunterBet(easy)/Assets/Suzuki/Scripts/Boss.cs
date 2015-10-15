@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Boss : MonoBehaviour 
 {
@@ -9,18 +10,30 @@ public class Boss : MonoBehaviour
 	public GameObject alphabet01;
 	public GameObject alphabet02;
 	public GameObject alphabet03;
+	Dictionary <int, GameObject> alphabetD = new Dictionary<int, GameObject> ();
 	//アルファベットの種類の数を保存すする変数
-	public int cntAlphabet = 3;
+	public int cntAlphabet = 26;
 	//呼び出し変数
 	BossMove bm;
 	Animator a;
 	//移動回数を保存する変数
 	public int rndM;
+	//GameObject
 
 	void LoadComponents(){
+		int num1 = 0;
+		int num2 = 1;
 		//読み込み
 		bm = gameObject.GetComponent<BossMove> ();
 		a = gameObject.GetComponent<Animator> ();
+		for (int i = 0; i < 26; i++) {
+			alphabetD.Add (i, GameObject.Find ("prefabs/Boss_" + num1 + num2));
+			num2++;
+			if (num2 == 10) {
+				num2 = 0;
+				num1++;
+			}
+		}
 	}
 
 	IEnumerator Start()
@@ -61,19 +74,10 @@ public class Boss : MonoBehaviour
 	public void DropAlphabet(){
 		//randomの返却値を保存する変数.
 		//発射するものを無作為に決定するため,ランダム関数を使用.
-		int rnd = Random.Range (1, cntAlphabet + 1);
+		int rnd = Random.Range (0, cntAlphabet);
+		Debug.Log ("rnd : " + rnd);
 
-		//発射するオブジェクトを決定.
-		//インスタンス化
-		if (rnd == 1) {
-			Instantiate (alphabet01, transform.position, transform.rotation);
-		}
-		if (rnd == 2) {
-			Instantiate (alphabet02, transform.position, transform.rotation);
-		}
-		if (rnd == 3) {
-			Instantiate (alphabet03, transform.position, transform.rotation);
-		}
+		Instantiate (alphabetD [rnd], transform.position, transform.rotation);
 	}
 
 	//何回移動するかを決定する関数
