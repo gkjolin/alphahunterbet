@@ -5,7 +5,7 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 	
 	Rigidbody2D rigidbody2d;
 	float speed = 5;
-	IUserInput userInput;
+    IUserInputContainer userInput;
 
 	public float Speed{
 		get{
@@ -16,7 +16,7 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 		}
 	}
 
-	public void Initialize (IUserInput _userInput,Rigidbody2D _rigidbody2d){
+	public void Initialize (IUserInputContainer _userInput,Rigidbody2D _rigidbody2d){
 		userInput = _userInput;
 		Speed = speed;
 		rigidbody2d = _rigidbody2d;
@@ -29,7 +29,8 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Move2D(userInput.GetInputVector());
+
+		Move2D(userInput.Result.GetInputVector());
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state

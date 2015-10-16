@@ -16,7 +16,7 @@ public class PlayerBuilder : MonoBehaviour {
         Rigidbody2D rigidbody2d = player.GetComponent<Rigidbody2D>();
         char_count charCount = GameObject.Find("char_count").GetComponent<char_count>();
 
-        playerAnimator.GetBehaviour<MovePlayerInNormal>().Initialize(userInput, rigidbody2d);
+        //playerAnimator.GetBehaviour<MovePlayerInNormal>().Initialize(userInput, rigidbody2d);
         playerAnimator.GetBehaviour<InEnemyCollision>().Initialize(playerModel, hpBarCtrl, DoorRefference, alphabetQueueHandler);
         charCount.Initialize(alphabetQueueHandler);
     }
