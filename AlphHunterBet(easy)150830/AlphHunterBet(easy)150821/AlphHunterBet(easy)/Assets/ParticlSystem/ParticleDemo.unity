@@ -100,8 +100,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 230900469}
   - 212: {fileID: 230900468}
-  - 95: {fileID: 230900471}
   - 114: {fileID: 230900470}
+  - 95: {fileID: 230900471}
   m_Layer: 0
   m_Name: PlayerDemo
   m_TagString: Untagged
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230900467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1826993680}
@@ -168,7 +168,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   nextParticlNumber: 0
-  boosterSpeed: .0298829079
+  boosterSpeed: 0
+  boosterSize: 0
+  boosterLifeTime: 0
   clearState: -1
 --- !u!95 &230900471
 Animator:
@@ -181,8 +183,8 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 09406b56ac99a9040a91bb0a5738f80e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -236,7 +238,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19808796, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 479676, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
       propertyPath: m_LocalPosition.x
@@ -269,6 +271,30 @@ Prefab:
     - target: {fileID: 11491278, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
       propertyPath: curve.m_Curve.Array.data[2].value
       value: .974999905
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826184, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19865944, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19865944, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19808796, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19865944, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19808796, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11491278, guid: a56f31896f9c2a8478816abe39fda1ac, type: 2}
