@@ -26,30 +26,30 @@ public class InEnemyCollision : StateMachineBehaviour {
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-		Collider2D c = playerModel.collisionData;
-		string answer = saveDoor.answer;
+		//Collider2D c = playerModel.collisionData;
+		//string answer = saveDoor.answer;
 
-        alphabetRepeatHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet,answer);
+  //      alphabetRepeatHandler.UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet,answer);
 
-		c.gameObject.GetComponent<Spaceship>().Explosion();
-		Destroy (c.gameObject);
+		//c.gameObject.GetComponent<Spaceship>().Explosion();
+		//Destroy (c.gameObject);
 
-        if (alphabetRepeatHandler.ValidateQueue(answer)) {
-            AudioSource answerSE = GameObject.Find("CorrectSE").GetComponent<AudioSource>();
-            answerSE.Play();
-            if (alphabetRepeatHandler.GetQueueLength() == answer.Length)
-            {
-                saveDoor.DOOR.SetActive(true);
-            }
-        }
-        else
-        {
-            AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
-            answerSE.Play();
-            HitPoint.decrease_hp();
-            alphabetRepeatHandler.ClearQueue();
-        }
-        animator.SetTrigger("EnemyCollisionFinished");
+        //if (alphabetRepeatHandler.ValidateQueue(answer)) {
+        //    AudioSource answerSE = GameObject.Find("CorrectSE").GetComponent<AudioSource>();
+        //    answerSE.Play();
+        //    if (alphabetRepeatHandler.GetQueueLength() == answer.Length)
+        //    {
+        //        saveDoor.DOOR.SetActive(true);
+        //    }
+        //}
+        //else
+        //{
+        //    AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
+        //    answerSE.Play();
+        //    HitPoint.decrease_hp();
+        //    alphabetRepeatHandler.ClearQueue();
+        //}
+        //animator.SetTrigger("EnemyCollisionFinished");
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

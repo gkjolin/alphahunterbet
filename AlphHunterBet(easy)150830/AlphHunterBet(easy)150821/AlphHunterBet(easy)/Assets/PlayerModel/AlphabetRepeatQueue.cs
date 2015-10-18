@@ -2,20 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AlphabetRepeatQueue : IAlphabetQueueHandler {
+public class AlphabetRepeatQueue : MonoBehaviour, ICollisionObserver, IAlphabetQueueHandler {
 	
 	Queue<string> alphabetQueue = new Queue<string>{};
+
+    public ICollisionObservable _ICollisionObservable;
 		
 	public Queue<string> AlphabetQueue {
 		get {
 			return alphabetQueue;
 		}
 	}
-	
-	public void UpdateQueue(string newAlphabet, string answerString){
-				
+
+    void Start()
+    {
+        _ICollisionObservable.Add(this);
+    }
+
+    public void UpdateCollisionObserver(Collider2D c)
+    {
+        UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet, GetComponent<PlayerModel>().answer);
+    }
+
+    public void UpdateQueue(string newAlphabet, string answerString){				
 		alphabetQueue.Enqueue(newAlphabet);
-		
 		if(alphabetQueue.Count > answerString.Length){
 			alphabetQueue.Dequeue ();
 		}
