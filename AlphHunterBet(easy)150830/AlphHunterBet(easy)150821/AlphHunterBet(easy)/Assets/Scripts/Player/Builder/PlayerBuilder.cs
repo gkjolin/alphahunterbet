@@ -18,7 +18,7 @@ public class PlayerBuilder : MonoBehaviour {
 
         //playerAnimator.GetBehaviour<MovePlayerInNormal>().Initialize(userInput, rigidbody2d);
         playerAnimator.GetBehaviour<InEnemyCollision>().Initialize(playerModel, hpBarCtrl, DoorRefference, alphabetQueueHandler);
-        charCount.Initialize(alphabetQueueHandler);
+        //charCount.Initialize(alphabetQueueHandler);
     }
 
 }

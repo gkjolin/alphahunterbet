@@ -46,8 +46,6 @@ public class InEnemyCollision : StateMachineBehaviour {
         //{
         //    AudioSource answerSE = GameObject.Find("IncorrectSE").GetComponent<AudioSource>();
         //    answerSE.Play();
-        //    HitPoint.decrease_hp();
-        //    alphabetRepeatHandler.ClearQueue();
         //}
         //animator.SetTrigger("EnemyCollisionFinished");
 	}
