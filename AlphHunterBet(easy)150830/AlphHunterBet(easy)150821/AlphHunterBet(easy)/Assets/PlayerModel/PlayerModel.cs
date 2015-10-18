@@ -4,10 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerModel : MonoBehaviour
 {
-    public int Number;
-    public static int StageNumber;
-    public int speed = 5;
-    public string answer;
 
     List<IPlayerModelObserver> observers = new List<IPlayerModelObserver>();
 

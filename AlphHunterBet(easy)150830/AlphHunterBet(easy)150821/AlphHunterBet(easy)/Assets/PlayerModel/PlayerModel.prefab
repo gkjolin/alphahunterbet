@@ -40,9 +40,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c694dcb7031a3654bb105e40ae607d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 0
-  speed: 5
-  answer: 
 --- !u!114 &11476728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,13 +51,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501debf533fcbbd48ba8022248f40b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  answer: AAA
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: answer
+      value: AAA
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120066}
