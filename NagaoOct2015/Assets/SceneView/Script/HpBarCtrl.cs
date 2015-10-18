@@ -8,12 +8,13 @@ public class HpBarCtrl: MonoBehaviour,IAlphabetQueueObserver
 
     Slider _slider;
     float _hp = 1;
-    public IAlphabetQueueObservable _IAlphabetQueueObservable;
+    public IAlphabetQueueObservableContainer _IAlphabetQueueObservableContainer;
 
     void Start () 
 	{
-        _IAlphabetQueueObservable.Add(this);
+        _IAlphabetQueueObservableContainer.Result.Add(this);
 		_slider = Slider.GetComponent<Slider>();
+        Debug.Log(_slider);
 	}
 
 	void Update () 
@@ -36,6 +37,7 @@ public class HpBarCtrl: MonoBehaviour,IAlphabetQueueObserver
     public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)
     {
         if (!observable.isRight)  decrease_hp();
+        Debug.Log(_hp);
 
     }
 

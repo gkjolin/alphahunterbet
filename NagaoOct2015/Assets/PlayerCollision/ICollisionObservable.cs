@@ -4,6 +4,7 @@ using System.Collections;
 
 public interface ICollisionObservable {    
     void Add(ICollisionObserver observer);
+    void Remove(ICollisionObserver observer);
 }
 
 [Serializable]

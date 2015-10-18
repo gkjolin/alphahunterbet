@@ -10,15 +10,15 @@ public class char_count : MonoBehaviour, IAlphabetQueueObserver
     {
         get
         {
-            return numberToCollect - _IAlphabetQueueObservable.queueString.Length;
+            return numberToCollect - _IAlphabetQueueObservableContainer.Result.queueString.Length;
         }
     }
 
-    public IAlphabetQueueObservable _IAlphabetQueueObservable;
+    public IAlphabetQueueObservableContainer _IAlphabetQueueObservableContainer;
 
     void Start()
     {
-        _IAlphabetQueueObservable.Add(this);
+        _IAlphabetQueueObservableContainer.Result.Add(this);
     }
 
     public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)

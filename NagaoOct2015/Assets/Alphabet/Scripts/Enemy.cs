@@ -12,7 +12,11 @@ public class Enemy : MonoBehaviour,ICollisionObserver
 
     public void UpdateCollisionObserver(Collider2D c)
     {
-        Destroy(gameObject);
+        if (c.gameObject == gameObject)
+        {
+            Destroy(gameObject);
+            _ICollisionObservable.Result.Remove(this);
+        }
     }
 
 }
