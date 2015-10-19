@@ -15,6 +15,7 @@ GameObject:
   - 212: {fileID: 21279238}
   - 114: {fileID: 11471032}
   - 82: {fileID: 8233320}
+  - 114: {fileID: 11483582}
   m_Layer: 0
   m_Name: AlphbetMissule
   m_TagString: Untagged
@@ -161,6 +162,18 @@ MonoBehaviour:
   autoCreateLight: 1
   autoCreateForce: 1
   autoCreateHeatwave: 0
+--- !u!114 &11483582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748bc74c1fabf4c5cbcca4c2475615f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphabet: 
 --- !u!114 &11489526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,8 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeLevel: 5
-  timeCount: 10
+  target: {fileID: 102910, guid: 3bf69fd035b74c34cbb090b3112cfcfe, type: 2}
   moveSpeed: 10
+  timeCount: 10
 --- !u!212 &21279238
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -280,6 +294,10 @@ Prefab:
       propertyPath: timeCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 102910, guid: 3bf69fd035b74c34cbb090b3112cfcfe, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157462}
