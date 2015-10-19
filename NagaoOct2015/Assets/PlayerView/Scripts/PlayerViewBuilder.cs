@@ -5,14 +5,15 @@ using System.Collections;
 public class PlayerViewBuilder : MonoBehaviour
 {
     public IUserInputContainer PlayerInput;
+    public IAlphabetQueueObservableContainer _IAlphabetQueueObservableContainer;
 
     // Use this for initialization
     void Start()
     {
         Animator playerAnimator = gameObject.GetComponent<Animator>();
-        Rigidbody2D rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidbody2d = gameObject.GetComponent<Rigidbody2D>();        
 
-        gameObject.GetComponent<Animator>().GetBehaviour<MovePlayerInNormal>().Initialize(PlayerInput, rigidbody2d);
+        gameObject.GetComponent<Animator>().GetBehaviour<PlayerInNormal>().Initialize(PlayerInput, rigidbody2d, _IAlphabetQueueObservableContainer.Result,playerAnimator);
     }
 
 }

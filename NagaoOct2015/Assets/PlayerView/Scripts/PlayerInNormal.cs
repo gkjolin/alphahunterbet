@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovePlayerInNormal : StateMachineBehaviour,IMove {
+public class PlayerInNormal : StateMachineBehaviour,IMove,IAlphabetQueueObserver
+{
 	
 	Rigidbody2D rigidbody2d;
 	float speed = 5;
     IUserInputContainer userInput;
+    Animator animator;
 
 	public float Speed{
 		get{
@@ -16,13 +18,21 @@ public class MovePlayerInNormal : StateMachineBehaviour,IMove {
 		}
 	}
 
-	public void Initialize (IUserInputContainer _userInput,Rigidbody2D _rigidbody2d){
+	public void Initialize (IUserInputContainer _userInput,Rigidbody2D _rigidbody2d, IAlphabetQueueObservable observable, Animator _animator){
 		userInput = _userInput;
 		Speed = speed;
 		rigidbody2d = _rigidbody2d;
-	}
+        observable.Add(this);
+        animator = _animator;
+    }
+
+    public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)
+    {
+        if (observable.isRight) animator.SetTrigger("Right");
+        else animator.SetTrigger("Wrong");
+    }
 	
-	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
 	//}
