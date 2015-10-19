@@ -2,8 +2,37 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel : MonoBehaviour,IPlayerModelObservable
 {
+
+    int _leftToCollect;
+
+    public int leftToCollect
+    {
+        get {
+            return _leftToCollect;
+        }
+        set{
+            _leftToCollect = value;
+            NotifyPlayerModelObservers();
+        }
+    }
+
+    float _hitPoint;
+
+    public float hitPoint
+    {
+        get
+        {
+            return _hitPoint;
+        }
+        set
+        {
+            _hitPoint = value;
+            NotifyPlayerModelObservers();
+        }
+    }
+
 
     List<IPlayerModelObserver> observers = new List<IPlayerModelObserver>();
 

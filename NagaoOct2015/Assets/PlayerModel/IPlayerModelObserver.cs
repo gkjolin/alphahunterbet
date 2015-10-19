@@ -3,6 +3,6 @@ using System.Collections;
 
 public interface IPlayerModelObserver{
 
-    void UpdateObserver(PlayerModel observable);
+    void UpdateObserver(IPlayerModelObservable observable);
 
 }

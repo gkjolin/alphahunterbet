@@ -5,7 +5,8 @@ using UnityEngine.UI; // ←※これを忘れずに入れる
 public class char_count : MonoBehaviour, IAlphabetQueueObserver
 {
 
-    public int numberToCollect = 3;
+    public int numberToCollect;
+
     public int LeftToCollect
     {
         get
@@ -23,6 +24,7 @@ public class char_count : MonoBehaviour, IAlphabetQueueObserver
 
     public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)
     {
-        GetComponent<Text>().text = (LeftToCollect).ToString();
+        PlayerModel r = GetComponent<PlayerModel>();
+        r.leftToCollect = numberToCollect-_IAlphabetQueueObservableContainer.Result.queueString.Length;
     }
 }
