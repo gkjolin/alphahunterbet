@@ -10,7 +10,7 @@ public class SceneManagerScript : MonoBehaviour {
     static GameObject prefab;
     static string startScene;
     static SceneManagerScript mInstance;
-    static Animator animator;
+    public static Animator animator;
 
     private SceneManagerScript () { // Private Constructor
 		

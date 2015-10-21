@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InStage1 : StateMachineBehaviour {
+public class InGoToGameOver : StateMachineBehaviour {
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Application.LoadLevel("GameStage1");
-        SceneManagerScript.animator.SetInteger("StageNumber", 1);
+        SceneManagerScript.animator.SetTrigger("GameOver");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
