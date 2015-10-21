@@ -16,7 +16,7 @@ public class HpBarCtrl: MonoBehaviour,IAlphabetQueueObserver
     public void decrease_hp()
 	{
 		//このクラスの_hpを-0.1f減少させる.
-		_hp -= 0.1f;
+		_hp -= 0.5f;
 	}
 
     public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)

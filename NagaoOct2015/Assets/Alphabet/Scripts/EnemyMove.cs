@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMove : MonoBehaviour {
+public class EnemyMove : MonoBehaviour,ICollisionObserver {
 	
 	Spaceship _spaceship;
 	public float speed;
 
+    public ICollisionObservableContainer _ICollisionObservableContainer;
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D> ().gravityScale = 1;
-	}
+        _ICollisionObservableContainer.Result.Add(this);
+    }
 	void OnBecameInvisible() {
-		Destroy (this.gameObject);
+        _ICollisionObservableContainer.Result.Remove(this);
+        GetComponent<Enemy>().isAlive = false;
+		Destroy (gameObject);
 	}
 
 	/*void OnWillRenderObject(){
@@ -27,5 +32,10 @@ public class EnemyMove : MonoBehaviour {
 	void Update () {
 		Physics2D.gravity = Vector2.up * speed;
 	}
+
+    public void UpdateCollisionObserver(Collider2D c)
+    {
+
+    }
 	
 }

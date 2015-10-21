@@ -3,20 +3,19 @@ using System.Collections;
 
 public class InGame : StateMachineBehaviour,IGameLogicObserver {
 
-    public IGameLogicObservableContainer _IGameLogicObservableContainer;
-    public Animator animator;
+    Animator _animator;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       _IGameLogicObservableContainer.Result.Add(this); 
-                           
+        _animator = animator;
+       GameObject.Find("GameLogic").GetComponent<GameLogic>().Add(this); 
     }
 
-    public void UpdateObserver(IGameLogicObservable observable)
+    public void UpdateObserver(GameLogic observable)
     {
-        if (observable.isClear) { animator.SetTrigger("Clear"); }
-        if (observable.isDead) { animator.SetTrigger("Dead"); }
+        if (observable.isClear) { _animator.SetTrigger("Clear"); }
+        if (observable.isDead) { _animator.SetTrigger("Dead"); }
     }
 
 }

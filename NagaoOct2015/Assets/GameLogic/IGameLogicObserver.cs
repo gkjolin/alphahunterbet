@@ -3,6 +3,6 @@ using System.Collections;
 
 public interface IGameLogicObserver {
 
-    void UpdateObserver(IGameLogicObservable observable);
+    void UpdateObserver(GameLogic observable);
 
 }

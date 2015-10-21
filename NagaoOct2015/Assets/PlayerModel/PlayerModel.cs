@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerModel : MonoBehaviour,IPlayerModelObservable
 {
 
-    int _leftToCollect;
+    int _leftToCollect = 3;
 
     public int leftToCollect
     {

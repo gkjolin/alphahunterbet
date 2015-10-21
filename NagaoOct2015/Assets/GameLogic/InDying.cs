@@ -6,13 +6,16 @@ public class InDying : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject player = GameObject.Find("GameLogic").GetComponent<GameLogic>().player;
+        GameObject playerView = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerView;
         GameObject dyingAnimation = GameObject.Find("GameLogic").GetComponent<GameLogic>().dyingAnimation;
-        Transform playerTransform = player.GetComponent<Transform>();
+        Transform playerTransform = playerView.GetComponent<Transform>();
+        GameObject playerCollision = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerCollision;
 
         GameObject c = Instantiate(dyingAnimation, playerTransform.position, playerTransform.rotation) as GameObject;
         c.GetComponent<Transform>().Translate(new Vector3(0, 0, 0));
-        Destroy(player);
+        playerCollision.GetComponent<PlayerCollision>().isActive = false;
+        Destroy(GameObject.Find("PlayerView"));
+
 
     }
 

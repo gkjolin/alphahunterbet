@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameLogic : MonoBehaviour,IPlayerModelObserver,IGameLogicObservable {
+public class GameLogic : MonoBehaviour,IPlayerModelObserver {
 
     public IPlayerModelObservableContainer _IPlayerModelObservableContainer;
 
-    public GameObject player;
+    public GameObject playerView;
     public GameObject clearAnimation;
     public GameObject dyingAnimation;
+    public GameObject playerCollision;
 
     List<IGameLogicObserver> observers = new List<IGameLogicObserver>();
     public void Add (IGameLogicObserver observer)
@@ -38,6 +39,7 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver,IGameLogicObservable
 	
 	// Update is called once per frame
 	public void UpdateObserver (IPlayerModelObservable observable) {
+        Debug.Log(observable.leftToCollect);
         isClear = (observable.leftToCollect == 0);
         isDead = (observable.hitPoint <= 0);
         NotifyGameLogicObservers();
