@@ -6,6 +6,9 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver,IGameLogicObservable
 
     public IPlayerModelObservableContainer _IPlayerModelObservableContainer;
 
+    public GameObject player;
+    public GameObject clearAnimation;
+
     List<IGameLogicObserver> observers = new List<IGameLogicObserver>();
     public void Add (IGameLogicObserver observer)
     {
@@ -29,6 +32,7 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver,IGameLogicObservable
     // Use this for initialization
     void Start () {
         _IPlayerModelObservableContainer.Result.Add(this);
+
     }
 	
 	// Update is called once per frame
