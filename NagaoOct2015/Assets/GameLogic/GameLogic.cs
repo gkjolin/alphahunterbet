@@ -8,6 +8,7 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver,IGameLogicObservable
 
     public GameObject player;
     public GameObject clearAnimation;
+    public GameObject dyingAnimation;
 
     List<IGameLogicObserver> observers = new List<IGameLogicObserver>();
     public void Add (IGameLogicObserver observer)
