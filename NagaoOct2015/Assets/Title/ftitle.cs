@@ -8,7 +8,6 @@ public class ftitle : MonoBehaviour {
 				// mouce clicked
 			if (Input.GetMouseButtonDown(0)){
             // scene load
-            Debug.Log("mouse down");
                 SceneManagerScript.SetTrigger("Explain");					
 			}
 		

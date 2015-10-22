@@ -14,7 +14,7 @@ public class SceneManagerScript : MonoBehaviour {
 
     private SceneManagerScript () { // Private Constructor
 		
-		Debug.Log("Create SceneManager GameObject instance.");
+
 	}
 		
 	public static SceneManagerScript Instance {
