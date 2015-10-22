@@ -9,6 +9,11 @@ using UnityEngine;
         public SoundDictionary _soundDictionary;
         public AudioClip defaultAudioClip;
 
+        void Start()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         public AudioClip audioClipValue(string key)
         {
             return _soundDictionary.ContainsKey(key) ? _soundDictionary[key] : defaultAudioClip;
