@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TimeScript : MonoBehaviour {
-	private float time = 300;
+	public float time = 300;
 
 	void Update ()
 	{
