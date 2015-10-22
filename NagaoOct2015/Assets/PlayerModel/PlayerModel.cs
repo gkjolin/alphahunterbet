@@ -18,7 +18,7 @@ public class PlayerModel : MonoBehaviour,IPlayerModelObservable
         }
     }
 
-    float _hitPoint;
+    float _hitPoint = 1;
 
     public float hitPoint
     {

@@ -22,6 +22,7 @@ public class HpBarCtrl: MonoBehaviour,IAlphabetQueueObserver
     public void UpdateAlphabetQueueObserver(IAlphabetQueueObservable observable)
     {
         if (!observable.isRight)  decrease_hp();
+        Debug.Log(_hp);
         GetComponent<PlayerModel>().hitPoint = _hp;
     }
 }

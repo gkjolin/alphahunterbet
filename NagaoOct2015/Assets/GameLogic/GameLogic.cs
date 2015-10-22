@@ -14,6 +14,7 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver {
     List<IGameLogicObserver> observers = new List<IGameLogicObserver>();
     public void Add (IGameLogicObserver observer)
     {
+        Debug.Log("observer:" + observer);
         observers.Add(observer);
     }
 
@@ -41,6 +42,7 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver {
 	public void UpdateObserver (IPlayerModelObservable observable) {
         isClear = (observable.leftToCollect == 0);
         isDead = (observable.hitPoint <= 0);
+        Debug.Log("isDead:" + isDead);
         NotifyGameLogicObservers();
 	}
 

@@ -6,8 +6,15 @@ public class InStage2 : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Application.LoadLevel("GetReady");
+        bool b = false;
+        while (b == false) {
+            b = GameObject.Find("SceneManager(Clone)").GetComponent<WaitTimer>().StartWait();
+        }
         Application.LoadLevel("GameStage2");
+
     }
+
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

@@ -15,7 +15,7 @@ public class InGame : StateMachineBehaviour,IGameLogicObserver {
     public void UpdateObserver(GameLogic observable)
     {
         if (observable.isClear) { _animator.SetTrigger("Clear"); }
-        if (observable.isDead) { _animator.SetTrigger("Dead"); }
+        if (observable.isDead == true) { _animator.SetTrigger("Dead"); }
     }
 
 }
