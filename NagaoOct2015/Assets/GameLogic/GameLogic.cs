@@ -39,7 +39,6 @@ public class GameLogic : MonoBehaviour,IPlayerModelObserver {
 	
 	// Update is called once per frame
 	public void UpdateObserver (IPlayerModelObservable observable) {
-        Debug.Log(observable.leftToCollect);
         isClear = (observable.leftToCollect == 0);
         isDead = (observable.hitPoint <= 0);
         NotifyGameLogicObservers();

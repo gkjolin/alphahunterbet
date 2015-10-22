@@ -38,7 +38,6 @@ public class AlphabetRepeatQueue : MonoBehaviour, ICollisionObserver, IAlphabetQ
 
     public void UpdateCollisionObserver(Collider2D c)
     {
-
         UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet, answer);
         isRight = ValidateQueue(answer);
         if (!isRight) ClearQueue();
