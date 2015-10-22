@@ -11,7 +11,7 @@ public class PlayerViewBuilder : MonoBehaviour
     void Start()
     {
         Animator playerAnimator = gameObject.GetComponent<Animator>();
-        Rigidbody2D rigidbody2d = gameObject.GetComponent<Rigidbody2D>();        
+        Rigidbody2D rigidbody2d = GameObject.Find("Player").GetComponent<Rigidbody2D>();        
 
         gameObject.GetComponent<Animator>().GetBehaviour<PlayerInNormal>().Initialize(PlayerInput, rigidbody2d, _IAlphabetQueueObservableContainer.Result,playerAnimator);
     }

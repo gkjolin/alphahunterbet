@@ -14,6 +14,7 @@ public class EnemyMove : MonoBehaviour,ICollisionObserver {
         _ICollisionObservableContainer.Result.Add(this);
     }
 	void OnBecameInvisible() {
+        if (_ICollisionObservableContainer == null) { return; }
         _ICollisionObservableContainer.Result.Remove(this);
         GetComponent<Enemy>().isAlive = false;
 		Destroy (gameObject);
