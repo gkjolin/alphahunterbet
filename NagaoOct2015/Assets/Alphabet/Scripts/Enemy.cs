@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour,ICollisionObserver
 
     void Start()
     {
-        _ICollisionObservable.Result.Add(this);
+       if (_ICollisionObservable.Result!=null)  _ICollisionObservable.Result.Add(this);
     }
 
     public void UpdateCollisionObserver(Collider2D c)

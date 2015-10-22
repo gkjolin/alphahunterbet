@@ -11,10 +11,10 @@ public class EnemyMove : MonoBehaviour,ICollisionObserver {
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D> ().gravityScale = 1;
-        _ICollisionObservableContainer.Result.Add(this);
+        if (_ICollisionObservableContainer.Result!=null) _ICollisionObservableContainer.Result.Add(this);
     }
 	void OnBecameInvisible() {
-        if (_ICollisionObservableContainer == null) { return; }
+        if (_ICollisionObservableContainer.Result == null) { return; }
         _ICollisionObservableContainer.Result.Remove(this);
         GetComponent<Enemy>().isAlive = false;
 		Destroy (gameObject);
