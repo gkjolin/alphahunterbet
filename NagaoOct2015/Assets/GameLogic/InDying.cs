@@ -6,6 +6,10 @@ public class InDying : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
+        GameObject.Find("AudioSource").GetComponent<AudioSource>().clip = SoundManagerScript.soundDictionaryManager.audioClipValue("dead");
+        GameObject.Find("AudioSource").GetComponent<AudioSource>().Play();
+
         GameObject playerView = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerView;
         GameObject dyingAnimation = GameObject.Find("GameLogic").GetComponent<GameLogic>().dyingAnimation;
         Transform playerTransform = playerView.GetComponent<Transform>();
@@ -25,9 +29,11 @@ public class InDying : StateMachineBehaviour {
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        SoundManagerScript.audioSource.Stop();
+
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

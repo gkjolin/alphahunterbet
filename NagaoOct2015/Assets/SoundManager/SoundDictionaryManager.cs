@@ -11,6 +11,7 @@ using UnityEngine;
 
         void Start()
         {
+            SoundManagerScript hoge = SoundManagerScript.Instance;
             DontDestroyOnLoad(this);
         }
 
