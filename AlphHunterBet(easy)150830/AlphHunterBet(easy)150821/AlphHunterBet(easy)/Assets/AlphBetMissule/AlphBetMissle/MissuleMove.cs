@@ -12,7 +12,6 @@ public class MissuleMove : MonoBehaviour {
 	private Detonator exp;
 	private SpriteRenderer render;
 	private AudioSource sound;
-	private PolygonCollider2D missuleCollider;
 
 	// Use this for initialization
 	void Start ()
@@ -20,7 +19,6 @@ public class MissuleMove : MonoBehaviour {
 		exp = gameObject.GetComponent<Detonator> ();
 		render = gameObject.GetComponent<SpriteRenderer> ();
 		sound = gameObject.GetComponent<AudioSource> ();
-		missuleCollider = gameObject.GetComponent<PolygonCollider2D> ();
 	}
 	
 	// Update is called once per frame

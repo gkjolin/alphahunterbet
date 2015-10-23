@@ -30,7 +30,7 @@ public class MissuleSwitch: MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isCollisionWithDoor () ) 
+		if (isCollisionWithDoor ()) 
 		{
 			Debug.Log("MissuleSwitch_Activate");
 			gameObject.SetActive(true);
@@ -40,7 +40,7 @@ public class MissuleSwitch: MonoBehaviour {
 	bool isCollisionWithDoor()
 	{
 		//↓のisName(引数：比較するステート名)が今のステートと引数の名称とを比較してbool値返す
-		return player_in_Animator.GetCurrentAnimatorStateInfo (0).IsName (stateName);
+		return true /*player_in_Animator.GetCurrentAnimatorStateInfo (0).IsName (stateName)*/;
 	}
 	
 	private bool isMissuleObject()
