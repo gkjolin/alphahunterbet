@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 406756}
   - 212: {fileID: 21287312}
   - 95: {fileID: 9560622}
+  - 114: {fileID: 11480686}
   m_Layer: 0
   m_Name: Boss_R
   m_TagString: Untagged
@@ -46,6 +47,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11480686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e0af5a545b02d4880f435aaa86c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  lifeTime: 5
 --- !u!212 &21287312
 SpriteRenderer:
   m_ObjectHideFlags: 1

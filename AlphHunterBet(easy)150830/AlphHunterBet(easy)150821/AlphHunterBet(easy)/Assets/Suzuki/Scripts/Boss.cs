@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
 	public GameObject alphabet01;
 	public GameObject alphabet02;
 	public GameObject alphabet03;
-	Dictionary <int, GameObject> alphabetD = new Dictionary<int, GameObject> ();
+	public GameObject[] arrayAlphabet = new GameObject[26];
 	//アルファベットの種類の数を保存すする変数
 	public int cntAlphabet = 26;
 	//呼び出し変数
@@ -21,19 +21,9 @@ public class Boss : MonoBehaviour
 	//GameObject
 
 	void LoadComponents(){
-		int num1 = 0;
-		int num2 = 1;
 		//読み込み
 		bm = gameObject.GetComponent<BossMove> ();
 		a = gameObject.GetComponent<Animator> ();
-		for (int i = 0; i < 26; i++) {
-			alphabetD.Add (i, GameObject.Find ("prefabs/Boss_" + num1 + num2));
-			num2++;
-			if (num2 == 10) {
-				num2 = 0;
-				num1++;
-			}
-		}
 	}
 
 	IEnumerator Start()
@@ -75,9 +65,9 @@ public class Boss : MonoBehaviour
 		//randomの返却値を保存する変数.
 		//発射するものを無作為に決定するため,ランダム関数を使用.
 		int rnd = Random.Range (0, cntAlphabet);
-		Debug.Log ("rnd : " + rnd);
+		Debug.Log ("DArnd : " + rnd);
 
-		Instantiate (alphabetD [rnd], transform.position, transform.rotation);
+		Instantiate (arrayAlphabet [rnd], transform.position, transform.rotation);
 	}
 
 	//何回移動するかを決定する関数

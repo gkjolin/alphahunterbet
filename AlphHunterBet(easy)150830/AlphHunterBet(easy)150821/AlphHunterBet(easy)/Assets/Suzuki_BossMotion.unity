@@ -1443,7 +1443,34 @@ MonoBehaviour:
   alphabet01: {fileID: 149630, guid: 7544a2adff915b440922daf629da2ffd, type: 2}
   alphabet02: {fileID: 128426, guid: d5796238c43793149a80249faf3e7470, type: 2}
   alphabet03: {fileID: 157294, guid: 41a36ef12d4b96247999ffaa72013c41, type: 2}
-  cntAlphabet: 3
+  arrayAlphabet:
+  - {fileID: 149630, guid: 7544a2adff915b440922daf629da2ffd, type: 2}
+  - {fileID: 128426, guid: d5796238c43793149a80249faf3e7470, type: 2}
+  - {fileID: 157294, guid: 41a36ef12d4b96247999ffaa72013c41, type: 2}
+  - {fileID: 171748, guid: b3a08191393913e44ac2a8229ae936ea, type: 2}
+  - {fileID: 178222, guid: 71d3946a3bc7fc546913296f9a467b7f, type: 2}
+  - {fileID: 124010, guid: dcc295b715e5395489582d9b68172701, type: 2}
+  - {fileID: 174678, guid: 72cb6902fc618364e88c290415c33b56, type: 2}
+  - {fileID: 116370, guid: acb975faaa4af594792903b1109137be, type: 2}
+  - {fileID: 106014, guid: 3a229794c2fb3d34fb011ef1a2eea564, type: 2}
+  - {fileID: 112174, guid: f1d42e3033494824c8506e201de0c7ef, type: 2}
+  - {fileID: 125670, guid: 9da595d2f94b25b489f98b0a3e51cd27, type: 2}
+  - {fileID: 137734, guid: 7cd7a5fd45a256d45a6459cd7913d3b5, type: 2}
+  - {fileID: 129662, guid: 6d76ed93744aa454998e03b79c6831c4, type: 2}
+  - {fileID: 136710, guid: 3e94d298d950b2c4bbc2eea09caf57ca, type: 2}
+  - {fileID: 167656, guid: 0e299d214b74cce4aa4a7ea7d52f390e, type: 2}
+  - {fileID: 182158, guid: a57fd6d2fe4410b4e8b6794d5bc09ad9, type: 2}
+  - {fileID: 172874, guid: 0eba03352c2541644a7008fee50ebff1, type: 2}
+  - {fileID: 166274, guid: 322ead66b8416a741b7a656cf01ddfd5, type: 2}
+  - {fileID: 159214, guid: c8628be6676d92148b3928b868736c38, type: 2}
+  - {fileID: 102910, guid: 3bf69fd035b74c34cbb090b3112cfcfe, type: 2}
+  - {fileID: 196226, guid: b93fb1111c478af498add17e2940b97f, type: 2}
+  - {fileID: 174922, guid: 779b87417381aa14ebe166dcee160955, type: 2}
+  - {fileID: 143294, guid: 72e8a3f6454bbac4d91e8d11013e7904, type: 2}
+  - {fileID: 189770, guid: 19fd706a1078df444815d6b8ee64b309, type: 2}
+  - {fileID: 166796, guid: 20ddb455f4cb2e44a9615d45599ea9ad, type: 2}
+  - {fileID: 131040, guid: abef048d3079ada4ba2f86978ce9a534, type: 2}
+  cntAlphabet: 26
   rndM: 0
 --- !u!212 &1890925189
 SpriteRenderer:
