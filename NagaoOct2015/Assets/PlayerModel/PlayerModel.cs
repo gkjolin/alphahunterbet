@@ -38,6 +38,7 @@ public class PlayerModel : MonoBehaviour,IPlayerModelObservable
 
     void Start()
     {
+        _leftToCollect = GetComponent<AlphabetRepeatQueue>().answer.Length;
     }
 
     public void Add(IPlayerModelObserver observer)

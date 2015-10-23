@@ -19,6 +19,7 @@ public class char_count : MonoBehaviour, IAlphabetQueueObserver
 
     void Start()
     {
+        numberToCollect= GetComponent<AlphabetRepeatQueue>().answer.Length;
         _IAlphabetQueueObservableContainer.Result.Add(this);
     }
 
