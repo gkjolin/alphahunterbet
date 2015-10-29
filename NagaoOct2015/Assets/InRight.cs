@@ -7,6 +7,7 @@ public class InRight : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("right");
+        SoundManagerScript.audioSource.volume = 0.8f;
         SoundManagerScript.audioSource.Play();
     }
 

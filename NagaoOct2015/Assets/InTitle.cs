@@ -8,6 +8,7 @@ public class InTitle : StateMachineBehaviour {
     {
         Application.LoadLevel("Title");
         SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("title");
+        SoundManagerScript.audioSource.volume = 0.3f;
         SoundManagerScript.audioSource.Play();
 
 

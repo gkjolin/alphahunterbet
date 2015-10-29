@@ -13,7 +13,5 @@ public class GameOverDisplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        stageNumber = SceneManagerScript.animator.GetInteger("StageNumber");
-        _textRef.text = "Your score is " + (stageNumber * 100).ToString();
 	}
 }

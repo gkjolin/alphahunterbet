@@ -7,6 +7,7 @@ public class AlphabetRepeatQueue : MonoBehaviour, ICollisionObserver, IAlphabetQ
 	Queue<string> alphabetQueue = new Queue<string>{};
     public string answer;
     public ICollisionObservableContainer _ICollisionObservableContainer;
+    Queue<string> lastQueue;
 
     List<IAlphabetQueueObserver> observers = new List<IAlphabetQueueObserver>();
 
@@ -38,9 +39,11 @@ public class AlphabetRepeatQueue : MonoBehaviour, ICollisionObserver, IAlphabetQ
 
     public void UpdateCollisionObserver(Collider2D c)
     {
+        lastQueue = new Queue<string>(alphabetQueue);
         UpdateQueue(c.gameObject.GetComponent<Enemy>().alphabet, answer);
         isRight = ValidateQueue(answer);
-        if (!isRight) ClearQueue();
+        if (!isRight) alphabetQueue = new Queue<string>(lastQueue);
+        Debug.Log("miss does not clear queue");
         observers.ForEach(arg => arg.UpdateAlphabetQueueObserver(this));
     }
 
@@ -75,6 +78,5 @@ public class AlphabetRepeatQueue : MonoBehaviour, ICollisionObserver, IAlphabetQ
     public void ClearQueue()
     {
         alphabetQueue.Clear();
-    }    
-
+    }
 }
