@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerInNormal : StateMachineBehaviour,IMove,IAlphabetQueueObserver
 {
-	
-	Rigidbody2D rigidbody2d;
-	float speed = 5;
+
+    Transform playerTransform;
+    float speed = 5;
     IUserInputContainer userInput;
     Animator animator;
 
@@ -18,10 +18,10 @@ public class PlayerInNormal : StateMachineBehaviour,IMove,IAlphabetQueueObserver
 		}
 	}
 
-	public void Initialize (IUserInputContainer _userInput,Rigidbody2D _rigidbody2d, IAlphabetQueueObservable observable, Animator _animator){
+	public void Initialize (IUserInputContainer _userInput,Transform _transform, IAlphabetQueueObservable observable, Animator _animator){
 		userInput = _userInput;
 		Speed = speed;
-		rigidbody2d = _rigidbody2d;
+		playerTransform = _transform;
         observable.Add(this);
         animator = _animator;
     }
@@ -59,7 +59,7 @@ public class PlayerInNormal : StateMachineBehaviour,IMove,IAlphabetQueueObserver
 	//}
 
 	public void Move2D (Vector2 direction){
-		rigidbody2d.velocity = direction * Speed;
-	}
+        playerTransform.Translate(new Vector3(direction.x, 0, 0));
+    }
 
 }
