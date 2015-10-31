@@ -3,12 +3,17 @@ using System.Collections;
 
 public class InWrong : StateMachineBehaviour {
 
+    public bool isAudioActive =true;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("wrong");
-        SoundManagerScript.audioSource.volume = 0.8f;
-        SoundManagerScript.audioSource.Play();
+        if (isAudioActive)
+        {
+            SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("wrong");
+            SoundManagerScript.audioSource.volume = 0.8f;
+            SoundManagerScript.audioSource.Play();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

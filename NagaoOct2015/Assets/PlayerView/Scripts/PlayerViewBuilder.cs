@@ -5,7 +5,7 @@ using System.Collections;
 public class PlayerViewBuilder : MonoBehaviour
 {
     public IUserInputContainer PlayerInput;
-    public Transform playerTransform;
+    public Rigidbody2D playerRigidbody;
     public IAlphabetQueueObservableContainer _IAlphabetQueueObservableContainer;
 
     // Use this for initialization
@@ -13,7 +13,7 @@ public class PlayerViewBuilder : MonoBehaviour
     {
         Animator playerAnimator = gameObject.GetComponent<Animator>();
  
-        gameObject.GetComponent<Animator>().GetBehaviour<PlayerInNormal>().Initialize(PlayerInput, playerTransform, _IAlphabetQueueObservableContainer.Result,playerAnimator);
+        gameObject.GetComponent<Animator>().GetBehaviour<PlayerInNormal>().Initialize(PlayerInput, playerRigidbody, _IAlphabetQueueObservableContainer.Result,playerAnimator);
     }
 
 }

@@ -9,29 +9,22 @@ public class MultiInput : MonoBehaviour,IUserInput {
     public KeyCode rightKeyCode;
 
     public float accel = 0.1f;
-    public float maxSpeed = 5f;
-    public float initialSpeed = 0.1f;
+    public Vector2 maxSpeed = new Vector2(5f,0);
+    public Vector2 initialSpeed = new Vector2(0.1f,0);
     Vector2 currentDirection = new Vector2(0,0);
 
     void Update()
     {
-        Vector2 vectorSum = -buttonLeft.Result.GetInputVector() + buttonRight.Result.GetInputVector();
-        vectorSum = vectorSum + new Vector2((Input.GetKeyDown(leftKeyCode) ? -1 : 0) + (Input.GetKeyDown(rightKeyCode) ? 1 : 0), 0);
-
-        if (vectorSum.magnitude == 0) { currentDirection = 0; return; }
-
-        currentDirection = (currentDirection != 0 && Mathf.Pow(currentDirection, 2) < Mathf.Pow(maxSpeed, 2)) ? currentDirection + Time.deltaTime * accel : currentDirection;
-
+        Vector2 vectorSum = buttonLeft.Result.GetInputVector() + buttonRight.Result.GetInputVector();
+        vectorSum = vectorSum + new Vector2((Input.GetKey(leftKeyCode) ? -1 : 0) + (Input.GetKey(rightKeyCode) ? 1 : 0), 0);
+        if (vectorSum.magnitude == 0) { currentDirection = new Vector2(0,0); return; }
+        currentDirection = (currentDirection.magnitude < maxSpeed.magnitude) ? currentDirection + vectorSum.normalized*Time.deltaTime * accel : currentDirection;
 
     }
 
     public Vector2 GetInputVector()
     {
-        playerTransform.Translate(new Vector3(currentDirection, 0, 0));
-
-
-
-        return new Vector2(currentDirection, 0);
+        return currentDirection;
     }
 
 
