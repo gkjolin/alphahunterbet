@@ -10,6 +10,11 @@ public class ftitle : MonoBehaviour {
             // scene load
                 SceneManagerScript.SetTrigger("Explain");					
 			}
-		
-	}
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // scene load
+            SceneManagerScript.SetTrigger("Explain");
+        }
+
+    }
 }
