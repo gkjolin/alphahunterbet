@@ -10,6 +10,7 @@ public class ButtonInput : MonoBehaviour,IUserInput {
     public void OnDown()
     {
         currentDirection = direction;
+		Debug.Log ("down");
     }
 
     public void OnUp()
