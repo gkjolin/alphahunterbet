@@ -8,19 +8,19 @@ public class BossMove : MonoBehaviour {
 	//ボスの移動の幅を保存.
 	public float moveWidth = 5;
 	//gameObjectのrendererを読み出すための変数
-	Renderer r;
+//	Renderer r;
 	//gameObjectのAnimatorを読み出すための変数
 	Animator a;
 	//移動をするかしないかの状態を保存.
 	bool canMove = true;
 	//移動方法を設定をする変数
-	bool sysMove = false;
+	public bool sysMove = false;
 	//1flameごとに１ずつ増加する変数
 	float cnt = 1;
 
 	void Start(){
         gameObject.transform.position = new Vector3(0, 2.5f, 0);
-		r = gameObject.GetComponent<Renderer> ();
+//		r = gameObject.GetComponent<Renderer> ();
 		a = gameObject.GetComponent<Animator> ();
 	}
 
@@ -53,7 +53,7 @@ public class BossMove : MonoBehaviour {
 		//移動する先の座標を保存するための変数
 		float rnd_x = Random.Range (-5.0f, 5.0f);
 		float rnd_y = Random.Range (0.0f, 3.65f);
-		Debug.Log ("rndX : " + rnd_x + ", rndY : " + rnd_y);
+//s		Debug.Log ("rndX : " + rnd_x + ", rndY : " + rnd_y);
 
 		//瞬間移動先に前もって移動
 		gameObject.transform.position = new Vector3 (rnd_x, rnd_y, 0);
