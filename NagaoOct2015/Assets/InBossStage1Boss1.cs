@@ -8,6 +8,7 @@ public class InBossStage1Boss1 : StateMachineBehaviour {
     {
         Application.LoadLevel("Boss1");
 
+
     }
 
 

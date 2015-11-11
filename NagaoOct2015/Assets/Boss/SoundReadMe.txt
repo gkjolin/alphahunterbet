@@ -3,9 +3,9 @@ http://pocket-se.info/archives/116/
 resistance.mp3
 
 
-�|�P�b�g�T�E���h�̉��f�ނ͖����ł����p�����܂����A�����p�̍ۂɂ͓��T�C�g�ւ̃����N�����肢���܂��B
-�����ナ���N���s�\�ȏꍇ�́A�����ɂ��N���W�b�g�\�L�ł��\���܂���B
+ポケットサウンドの音素材は無料でご利用頂けますが、ご利用の際には当サイトへのリンクをお願いします。
+性質上リンクが不可能な場合は、文字によるクレジット表記でも構いません。
 
-�� �� ���ʉ��f�ށF�|�P�b�g�T�E���h ? http://pocket-se.info/
+例 → 効果音素材：ポケットサウンド ? http://pocket-se.info/
 
-�w�Z�s���Ȃǋ���@�ւł̂����p�̍ہA�����N������ł���ꍇ�͖Ə��v���܂��B
+学校行事など教育機関でのご利用の際、リンクが困難である場合は免除致します。
