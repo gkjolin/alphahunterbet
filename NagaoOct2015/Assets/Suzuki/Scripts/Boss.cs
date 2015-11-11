@@ -23,6 +23,8 @@ public class Boss : MonoBehaviour
 	//テレポートする最大回数
 	public int maxTeleport = 6;
 
+	public ICollisionObservableContainer _ICollisionObservableContainer;
+
 	void LoadComponents(){
 		//読み込み
 		bm = gameObject.GetComponent<BossMove> ();
@@ -82,7 +84,11 @@ public class Boss : MonoBehaviour
 
 		dropedAlphabet [rnd] = true;
 		dropcnt++;
-		Instantiate (arrayAlphabet [rnd], transform.position, transform.rotation);
+		GameObject alphabetObject=Instantiate (arrayAlphabet [rnd], transform.position, transform.rotation) as GameObject;
+
+		alphabetObject.GetComponent<Enemy>()._ICollisionObservable = _ICollisionObservableContainer;
+		alphabetObject.GetComponent<EnemyMove>()._ICollisionObservableContainer = _ICollisionObservableContainer;
+
 
 		Debug.Log ("before if");
 		if(dropcnt == cntAlphabet)
