@@ -7,9 +7,9 @@ public class InClearing : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        GameObject.Find("AudioSource").GetComponent<AudioSource>().clip = SoundManagerScript.soundDictionaryManager.audioClipValue("clear");
-        GameObject.Find("AudioSource").GetComponent<AudioSource>().Play();
+        SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("clear");
+        SoundManagerScript.audioSource.volume = 0.3f;
+        SoundManagerScript.audioSource.Play();
 
         GameObject playerView = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerView;
         GameObject clearAnimation = GameObject.Find("GameLogic").GetComponent<GameLogic>().clearAnimation;
@@ -18,7 +18,6 @@ public class InClearing : StateMachineBehaviour {
         GameObject c = Instantiate(clearAnimation,playerTransform.position,playerTransform.rotation) as GameObject;
         c.GetComponent<Transform>().Translate(new Vector3(0, 3, 0));
         GameObject.Find("Player").SetActive(false);
-
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
