@@ -6,7 +6,7 @@ public class InBossStage1Boss3 : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Application.LoadLevel("Boss3");
+        Application.LoadLevel("Boss_hashimoto");
 
 
     }
