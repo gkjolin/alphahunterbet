@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class InBossDying : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Destroy(GameObject.Find("Boss"));
+
+        List<GameObject> bosses = GameObject.FindObjectsOfType<GameObject>().Where(s => s.name == "Boss").ToList<GameObject>();
+
+        foreach(GameObject g in bosses)
+        {
+            Destroy(g);
+        }
+
         SoundManagerScript.BGMSource.Stop();
         SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("BossDying");
 		SoundManagerScript.audioSource.volume = 0.3f;
