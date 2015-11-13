@@ -8,7 +8,6 @@ public class GameOverDisplay : MonoBehaviour {
     Text _textRef;
 	// Use this for initialization
 	void Start () {
-        _textRef = GameObject.Find("DisplayScore").GetComponent<Text>();
     }
 
     // Update is called once per frame

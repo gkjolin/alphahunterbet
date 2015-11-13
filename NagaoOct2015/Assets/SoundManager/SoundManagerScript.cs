@@ -7,6 +7,7 @@ public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript mInstance;
     public static SoundDictionaryManager soundDictionaryManager;
     public static AudioSource audioSource;
+	public static AudioSource BGMSource;
 
     private SoundManagerScript () { // Private Constructor	
         Debug.Log("Create SoundManager GameObject instance.");
@@ -20,8 +21,11 @@ public class SoundManagerScript : MonoBehaviour {
                 mInstance = go.AddComponent<SoundManagerScript>();
                 soundPlayer = GameObject.Find("SoundPlayer");
                 soundDictionaryManager = soundPlayer.GetComponent<SoundDictionaryManager>();
-                audioSource = soundPlayer.GetComponent<AudioSource>();
-                DontDestroyOnLoad(go);
+
+				AudioSource[] allMyAudioSources = soundPlayer.GetComponents<AudioSource>();
+				audioSource = allMyAudioSources[0];
+				BGMSource = allMyAudioSources[1];
+				DontDestroyOnLoad(go);
                 DontDestroyOnLoad(soundPlayer);
             }
             return mInstance;

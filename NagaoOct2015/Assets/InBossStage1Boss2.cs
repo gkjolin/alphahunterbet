@@ -1,24 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InClearing : StateMachineBehaviour {
-
+public class InBossStage1Boss2 : StateMachineBehaviour {
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("clear");
-        SoundManagerScript.audioSource.volume = 0.3f;
-        SoundManagerScript.audioSource.Play();
+		Application.LoadLevel("Boss2ISHIZAWA");
 
-        GameObject playerView = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerView;
-        GameObject clearAnimation = GameObject.Find("GameLogic").GetComponent<GameLogic>().clearAnimation;
-        Transform playerTransform = playerView.GetComponent<Transform>();
 
-        GameObject c = Instantiate(clearAnimation,playerTransform.position,playerTransform.rotation) as GameObject;
-        c.GetComponent<Transform>().Translate(new Vector3(0, 3, 0));
-        GameObject.Find("Player").SetActive(false);
     }
+
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

@@ -6,9 +6,10 @@ public class InDying : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        GameObject.Find("AudioSource").GetComponent<AudioSource>().clip = SoundManagerScript.soundDictionaryManager.audioClipValue("dead");
-        GameObject.Find("AudioSource").GetComponent<AudioSource>().Play();
+		SoundManagerScript.audioSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("dead");
+		SoundManagerScript.audioSource.volume = 0.3f;
+		SoundManagerScript.audioSource.Play();
+		SoundManagerScript.BGMSource.Stop();
 
         GameObject playerView = GameObject.Find("GameLogic").GetComponent<GameLogic>().playerView;
         GameObject dyingAnimation = GameObject.Find("GameLogic").GetComponent<GameLogic>().dyingAnimation;
