@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerCollision : MonoBehaviour,ICollisionObservable {
+public class PlayerCollision : MonoBehaviour,ICollisionObservable, IGameLogicObserver
+{
 
     List<ICollisionObserver> observers = new List<ICollisionObserver>();
     Collider2D currentCollider;
@@ -42,6 +43,16 @@ public class PlayerCollision : MonoBehaviour,ICollisionObservable {
         observers.RemoveAll(arg => arg == null);
         observers.ForEach(arg => arg.UpdateCollisionObserver(currentCollider));
         observers.RemoveAll(arg => arg == null);
+    }
+
+    void Start()
+    {
+        GameObject.Find("GameLogic").GetComponent<GameLogic>().Add(this);
+    }
+
+    public void UpdateObserver(GameLogic observable)
+    {
+        if (observable.isClear) { _isActive = false; }
     }
 
 }
