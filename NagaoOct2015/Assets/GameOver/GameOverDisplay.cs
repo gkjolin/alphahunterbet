@@ -12,5 +12,13 @@ public class GameOverDisplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	}
+        if (Input.GetMouseButtonDown(0))
+        {
+            SceneManagerScript.SetTrigger("ToTitle");            
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            SceneManagerScript.SetTrigger("ToTitle");
+        }
+    }
 }
