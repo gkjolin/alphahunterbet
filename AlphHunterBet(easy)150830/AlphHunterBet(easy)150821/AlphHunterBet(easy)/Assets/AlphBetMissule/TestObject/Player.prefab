@@ -13,9 +13,6 @@ GameObject:
   - 50: {fileID: 5082802}
   - 61: {fileID: 6125992}
   - 82: {fileID: 8206190}
-  - 114: {fileID: 11465580}
-  - 114: {fileID: 11442516}
-  - 114: {fileID: 11449150}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -79,6 +76,7 @@ AudioSource:
   m_Pitch: .639999986
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -150,43 +148,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11442516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0343b04ffca185548870506c09c682ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11449150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddd180f10efba547aa0d303d28e1ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11465580
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c694dcb7031a3654bb105e40ae607d91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Answer: A
-  AnswerNumber: 0
-  Number: 0
-  speed: 5
 --- !u!212 &21285462
 SpriteRenderer:
   m_ObjectHideFlags: 1
