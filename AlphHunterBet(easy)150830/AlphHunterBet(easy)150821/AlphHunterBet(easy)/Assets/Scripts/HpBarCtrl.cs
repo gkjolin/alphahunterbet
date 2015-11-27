@@ -2,74 +2,58 @@
 using System.Collections;
 using UnityEngine.UI; // ←※これを忘れずに入れる
 
-public class HpBarCtrl: MonoBehaviour {
-	
+public class HpBarCtrl: MonoBehaviour 
+{
+	//Sliderクラスを保存するための変数
 	Slider _slider;
-	public GameObject p1;
-	public GameObject gameOverText;
-	public GameObject gameover;
+	//各GameObjectを保存するための変数
+	//ここで宣言されていた"public GameObject gameOverText;"は未使用のため削除
+	public GameObject p1;				//Player
+	public GameObject gameover;			//GameOver
+	//自機のHP残量を保存する変数
+	static float _hp = 1;
 
-//high_level
-	void Start () {
-		// スライダーを取得する
+	//high_level
+	void Start () 
+	{
+		//"Slider"GameObjectの"Slider"Componentを取得
 		_slider = GameObject.Find("Slider").GetComponent<Slider>();
+		//"GameOver"GameObjectを取得
 		gameover = GameObject.Find ("GameOver");
-		//********** 追記 **********// 
+		//"Player"GameObjectを取得
+		p1 = GameObject.Find ("Player");
 	}
-	
-static float _hp = 1;
-	void Update () {
-		// HP_down
-			//_hp -= 0.1f;
 
-		if(_hp < 0) {
-			//Debug.Log ("gameover");
-			//2回目以降はどうなるか
-			//GameOver();
-			//Debug.Log ("test");
+	void Update () 
+	{
+		// HP_down : _hp -= 0.1f;
 
-			p1 = GameObject.Find ("Player");
+		if(_hp < 0)
+		{
+			//Find関数はUpdate内で実行する必要がないため,Start内へ移動
+
+			//HPが0となったため,自機を破壊
 			Destroy (p1);
-			_hp = 1;
-			Application.LoadLevel ("gameover");
-			// 最大を超えたら1に戻す
-			Debug.Log ("_hp = " + _hp);
-			//if (Input.GetKeyDown (KeyCode.X)) {
-				//gameover.SetActive (false);
-				//Application.LoadLevel ("gameover");
-				//Application.LoadLevel("base_test");
-			//}
 
+			//HPの初期化は不要だったため削除
+
+			//gameoverSceneを呼び出し
+			Application.LoadLevel ("gameover");
+			//現在の_hpの値をコンソール上に表示
+			Debug.Log ("_hp = " + _hp);
 		}
 		
 		// HPゲージに値を設定
 		_slider.value = _hp;
 	}
-	//public void GameOver ()
-	//{
-		// ゲームオーバー時に、タイトルを表示する
-		//gameover.SetActive (true);
-		//Debug.Log ("through");
 
-	//}
-	//void OnTriggerEnter2D (Collider2D c){
-		
-		//string layerName = LayerMask.LayerToName(c.gameObject.layer);
-		//Debug.Log ("through");
-		//if(layerName == "Enemy"){
-			//queue.Enqueue(c.gameObject.GetComponent<Enemy>().alphabet);
-			//string arrayQueue=string.Concat(queue.ToArray());
-			//Debug.Log ("arrayQueue:"+arrayQueue);
-			//spaceship.Explosion();
-			//Destroy (c.gameObject);
-			//_hp -= 0.1f;
-			//if(queue.Count < answer.Length){
-				//return;
-			//}
-			//QueueFull(c,arrayQueue);
-		//}
+	//GameOverメソッド,OnTriggerEnter２Dメソッドは必要ないようなので削除
+
+	//他クラスからの呼び出しメソッド
+	//自クラスの_hpの値を呼び出されるたびに-0.1fづつ減少させる.
 	public void decrease_hp()
 	{
-		HpBarCtrl._hp -= 0.1f;
+		//このクラスの_hpを-0.1f減少させる.
+		_hp -= 0.1f;
 	}
 }
