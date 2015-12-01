@@ -5,10 +5,8 @@ public class Gameover : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		background = GetConponent<GUITexture>().texture; //画像を表示
-		audio.PlayOneShot(failed);　// 音を鳴らす
-		if(Input.anykey){　//何か入力があったとき
-			Application.Load("scene"); //タイトルのシーンを呼ぶ
+		if(Input.anyKey){　//何か入力があったとき
+			Application.LoadLevel("test"); //タイトルのシーンを呼ぶ
 		}
 
 	}
