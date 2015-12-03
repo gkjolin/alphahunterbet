@@ -7,10 +7,14 @@ public class HelperText_Sample : MonoBehaviour {
 
 	public Text text;
 	public string rightAlphabet;
-	public string getAlphabet;
+
+    [HideInInspector]
+    public string getAlphabet;
 	public enum TEXTSTATE{NONE,SUCCESS,MISS,DEFEAT,CLEAR,WAIT};
-	public TEXTSTATE textState=TEXTSTATE.NONE;
-	public bool corutineStart;
+    [HideInInspector]
+    public TEXTSTATE textState=TEXTSTATE.NONE;
+    [HideInInspector]
+    public bool corutineStart;
 	
 	Dictionary<TEXTSTATE,string> showText=new Dictionary<TEXTSTATE,string>();
 
