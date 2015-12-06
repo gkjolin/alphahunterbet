@@ -19,7 +19,7 @@ public class DragInput : MonoBehaviour,IUserInput {
 
     public Vector2 GetInputVector()
     {
-        return currentDirection + new Vector2((Input.GetKey(leftKeyCode) ? -1 : 0) + (Input.GetKey(rightKeyCode) ? 1 : 0), 0);
+        return currentDirection + new Vector2((Input.GetKey(leftKeyCode) ? -1 : 0) + (Input.GetKey(rightKeyCode) ? 1 : 0), 0)*2;
         ;
     }
 
