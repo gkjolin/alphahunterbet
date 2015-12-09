@@ -10,11 +10,13 @@ public class HelperText_Sample : MonoBehaviour {
 
     [HideInInspector]
     public string getAlphabet;
-	public enum TEXTSTATE{NONE,SUCCESS,MISS,DEFEAT,CLEAR,WAIT};
+	public enum TEXTSTATE{NONE,SUCCESS,MISS,DEFEAT,CLEAR,WAIT,START};
     [HideInInspector]
     public TEXTSTATE textState=TEXTSTATE.NONE;
     [HideInInspector]
     public bool corutineStart;
+	public bool show;
+	public Animator animator;
 	
 	Dictionary<TEXTSTATE,string> showText=new Dictionary<TEXTSTATE,string>();
 	
@@ -23,10 +25,12 @@ public class HelperText_Sample : MonoBehaviour {
 	string defeat;
 	string clear;
 	string wait;
+	string start;
 	
 	void Start () {
 		SampleTextSetting ();
 		TextSet ();
+		TextChangeAndShow (TEXTSTATE.START);
 	}
 	/// <summary>
 	/// 初期テキスト
@@ -37,6 +41,7 @@ public class HelperText_Sample : MonoBehaviour {
 		showText.Add (TEXTSTATE.DEFEAT,defeat);
 		showText.Add (TEXTSTATE.WAIT,wait);
 		showText.Add (TEXTSTATE.CLEAR,clear);
+		showText.Add (TEXTSTATE.START,start);
 	}
 	void SampleTextSetting(){
 		success = "だな！正解だ！";
@@ -44,6 +49,7 @@ public class HelperText_Sample : MonoBehaviour {
 		defeat = "ぬわぁあああああああああああ！";
 		clear = "さぁ！次なる道へ行こう！";
 		wait = "はまだか...!?";
+		start = "頑張っていってみよう！";
 	}
 	/// <summary>
 	/// 正しいアルファベットか判定し、テキストを表示するようにする.
@@ -57,11 +63,34 @@ public class HelperText_Sample : MonoBehaviour {
 		}
 		TextChangeAndShow(textState);
 	}
+
+	/// <summary>
+	/// 正解のアルファベットを設定する.最初はなにも設定されてないのでこれで設定する.
+	/// </summary>
+	/// <param name="nextRightAlphabet">次正解のアルファベット</param>
+	public void RightAlphabetChange(string nextRightAlphabet){
+		rightAlphabet = nextRightAlphabet;
+	}
+
+	/// <summary>
+	/// クリアのテキストを表示する.
+	/// </summary>
+	public void ClearTextSet(){
+		TextChangeAndShow (TEXTSTATE.CLEAR);
+	}
+	/// <summary>
+	/// ゲームオーバーのテキストを表示する.
+	/// </summary>
+	public void DefeatTextSet(){
+		TextChangeAndShow (TEXTSTATE.DEFEAT);
+	}
+
 	/// <summary>
 	/// テキストを変更＆表示. ステートを選んで実行する
 	/// </summary>
 	/// <param name="textState">Text state.</param>
-	public void TextChangeAndShow(HelperText_Sample.TEXTSTATE textState){
+	void TextChangeAndShow(HelperText_Sample.TEXTSTATE textState){
+		ShowHelper ();
 		switch (textState) {
 
 		case TEXTSTATE.SUCCESS://正解
@@ -85,9 +114,30 @@ public class HelperText_Sample : MonoBehaviour {
 		case TEXTSTATE.WAIT://待機
 			showText[TEXTSTATE.WAIT]=rightAlphabet+wait;
 			corutineStart = false;
+			StartCoroutine("WaitTimeCorutine");
 			break;
 		}
 		text.text=showText[textState];//テキストを表示する
+	}
+	//start
+	void ShowHelper(){
+		Debug.Log ("表示するぞ");
+		StartCoroutine ("ShowAndStop");
+	}
+	IEnumerator ShowAndStop(){
+		if (show==true)yield break;
+		show = true;
+		animator.SetBool ("Show",show);
+		float time = 0f;
+		while(time<7f){
+			time+=Time.deltaTime;
+			Debug.Log("表示してます");
+			yield return null;
+		}
+		show = false;
+		animator.SetBool ("Show",show);
+		Debug.Log ("止まるよ");
+		yield return new WaitForSeconds (1.0f);
 	}
 	/// <summary>
 	/// 発生中のコルーチンを止める
@@ -104,7 +154,7 @@ public class HelperText_Sample : MonoBehaviour {
 		if (corutineStart == true)yield break;//複数回コルーチンを呼び出さないようにする.
 		corutineStart = true;//コルーチン開始.
 		float time = 0;
-		while (time<4.5f) {
+		while (time<15f) {
 			time+=Time.deltaTime;
 			yield return null;
 		}
@@ -112,7 +162,6 @@ public class HelperText_Sample : MonoBehaviour {
 		TextChangeAndShow (textState);
 		yield return new WaitForSeconds (2.0f);
 	}
-
 
 	//----------------Demo用の表示関係--------------------------//
 	//Demoで実行する以外では関係なし
@@ -127,6 +176,7 @@ public class HelperText_Sample : MonoBehaviour {
 	public void ShowHelperText_CLEAR(){
 		textState = TEXTSTATE.CLEAR;
 		text.text = showText [textState];
+		TextChangeAndShow (TEXTSTATE.CLEAR);
 	}
 	public void ShowHelperText_WAIT(){
 		textState = TEXTSTATE.WAIT;
@@ -135,6 +185,7 @@ public class HelperText_Sample : MonoBehaviour {
 	public void ShowHelperText_DEFEAT(){
 		textState = TEXTSTATE.DEFEAT;
 		text.text = showText [textState];
+		TextChangeAndShow (TEXTSTATE.DEFEAT);
 	}
 
 
