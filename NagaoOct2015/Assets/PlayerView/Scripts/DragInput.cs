@@ -26,7 +26,7 @@ public class DragInput : MonoBehaviour,IUserInput {
     void OnMouseDrag()
     {
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        currentDirection = (cursorPosition - transform.position);
+        currentDirection = (cursorPosition - transform.position)*2;
         currentDirection.y= 0;
         Debug.Log(currentDirection);
     }
