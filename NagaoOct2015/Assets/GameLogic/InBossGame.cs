@@ -12,7 +12,8 @@ public class InBossGame : StateMachineBehaviour,IGameLogicObserver {
        GameObject.Find("GameLogic").GetComponent<GameLogic>().Add(this); 
 		SoundManagerScript.BGMSource.clip = SoundManagerScript.soundDictionaryManager.audioClipValue("BossMusic");
 		SoundManagerScript.BGMSource.volume = 0.3f;
-		SoundManagerScript.BGMSource.Play();		
+		SoundManagerScript.BGMSource.Play();
+        SoundManagerScript.BGMSource.loop = true;		
     }
 
     public void UpdateObserver(GameLogic observable)
