@@ -85,6 +85,94 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &441156023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441156027}
+  - 33: {fileID: 441156026}
+  - 64: {fileID: 441156025}
+  - 23: {fileID: 441156024}
+  - 114: {fileID: 441156028}
+  m_Layer: 0
+  m_Name: METEO Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &441156024
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441156023}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8aa3be640cfeb164b8591b2d5e3b0295, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &441156025
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441156023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &441156026
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441156023}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &441156027
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441156023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0500000007, y: .0500000007, z: 0}
+  m_LocalScale: {x: 15.35956, y: 11.4367466, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1984919279}
+  m_RootOrder: 2
+--- !u!114 &441156028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441156023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7680c1bcf1f043c4eaf335489190b1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: .100000001
 --- !u!1 &1144393244
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +260,7 @@ GameObject:
   - 23: {fileID: 1475018174}
   - 114: {fileID: 1475018178}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: METEO Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +276,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6a6d93eb9ba43f645a2b773c6291c45c, type: 2}
+  - {fileID: 2100000, guid: 6f106bf6c7ad0e74fa0306a7aa6c17c8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -230,8 +318,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475018173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23999977, y: -1.09000003, z: 0}
-  m_LocalScale: {x: 1.8451966, y: 2.36167717, z: 1}
+  m_LocalPosition: {x: .0399999991, y: .170000002, z: 0}
+  m_LocalScale: {x: 15.5092373, y: 11.3495655, z: 1}
   m_Children: []
   m_Father: {fileID: 1984919279}
   m_RootOrder: 0
@@ -246,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7680c1bcf1f043c4eaf335489190b1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .0299999993
+  speed: .0500000007
 --- !u!1 &1571649388
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +447,7 @@ Animator:
   m_GameObject: {fileID: 1611216933}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 570449519bad45345bb65a33546d9f6e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2bd7ec7b8145a784083b46b6804edce9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -393,7 +481,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 29ebfc9b128524945bbc1a9029e18328, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a53853fb3b49f2f43b2b73bbc28e7152, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1611216936
 Transform:
@@ -434,5 +522,6 @@ Transform:
   m_Children:
   - {fileID: 1475018177}
   - {fileID: 1611216936}
+  - {fileID: 441156027}
   m_Father: {fileID: 0}
   m_RootOrder: 2

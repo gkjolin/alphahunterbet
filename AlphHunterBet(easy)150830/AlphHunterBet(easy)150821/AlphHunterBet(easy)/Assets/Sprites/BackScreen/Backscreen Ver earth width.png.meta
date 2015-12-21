@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d5606a8f29d1dff41b7b8027f7a6573b
-timeCreated: 1448006512
+guid: a53853fb3b49f2f43b2b73bbc28e7152
+timeCreated: 1450682120
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,12 @@ TextureImporter:
     21300006: Backscreen Ver earth width_3
     21300008: Backscreen Ver earth width_4
     21300010: Backscreen Ver earth width_5
+    21300012: Backscreen Ver earth width_6
+    21300014: Backscreen Ver earth width_7
+    21300016: Backscreen Ver earth width_8
+    21300018: Backscreen Ver earth width_9
+    21300020: Backscreen Ver earth width_10
+    21300022: Backscreen Ver earth width_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -110,6 +116,66 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2570
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_6
+      rect:
+        serializedVersion: 2
+        x: 3084
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_7
+      rect:
+        serializedVersion: 2
+        x: 3598
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_8
+      rect:
+        serializedVersion: 2
+        x: 4112
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_9
+      rect:
+        serializedVersion: 2
+        x: 4626
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_10
+      rect:
+        serializedVersion: 2
+        x: 5140
+        y: 0
+        width: 514
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Backscreen Ver earth width_11
+      rect:
+        serializedVersion: 2
+        x: 5654
         y: 0
         width: 514
         height: 384
