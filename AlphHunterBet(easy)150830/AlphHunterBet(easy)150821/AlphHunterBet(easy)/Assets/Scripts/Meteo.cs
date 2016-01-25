@@ -17,7 +17,9 @@ public class Meteo: MonoBehaviour
 		// ローカル座標のY軸のマイナス方向に移動する
 		spaceship.Move (transform.up * -1);
 
-		//3秒後にオブジェクトを削除
+
+
+		//Des秒後にオブジェクトを削除
 		Destroy(gameObject, Des);
 	}
 }
